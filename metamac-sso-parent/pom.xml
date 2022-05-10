@@ -21,7 +21,7 @@
     </issueManagement>
 
 	<properties>
-        <metamac-core-common.version>6.3.1</metamac-core-common.version>
+        <metamac-core-common.version>6.3.2-SNAPSHOT</metamac-core-common.version>
         <edatos-core-utils.version>1.6.0</edatos-core-utils.version>
         <log4j.version>2.16.0</log4j.version>
 	</properties>
