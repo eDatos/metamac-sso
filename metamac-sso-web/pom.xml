@@ -31,7 +31,7 @@
                         <overlay>
                             <groupId>org.apereo.cas</groupId>
                             <artifactId>cas-server-webapp</artifactId>                            
-                             <excludes>
+                            <excludes>
                                 <exclude>WEB-INF/lib/log4j*</exclude>                                
                             </excludes>
                         </overlay>
@@ -82,6 +82,12 @@
         <dependency>
           <groupId>org.apereo.cas</groupId>
           <artifactId>cas-server-core-services-authentication</artifactId>         
+        </dependency>
+        
+        <!-- Allow CAS to be used as SAML2 idp  https://apereo.github.io/cas/5.3.x/installation/Configuring-SAML2-Authentication.html -->
+        <dependency>
+          <groupId>org.apereo.cas</groupId>
+          <artifactId>cas-server-support-saml-idp</artifactId>
         </dependency>
         
         <!-- log4j dependency override -->
