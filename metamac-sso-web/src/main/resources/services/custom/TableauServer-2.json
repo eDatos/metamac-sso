@@ -7,11 +7,20 @@
   "metadataLocation" : "classpath:/metadata/sp-tableau-server-metadata.xml",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
+     "authorizedToReleaseCredentialPassword" : false,
+    "authorizedToReleaseProxyGrantingTicket" : false,
     "allowedAttributes" : {
       "@class" : "java.util.TreeMap",
       "username" : "groovy { return attributes['username'].get(0) }",
       "displayName" : "groovy { return attributes['name']?.get(0) }",
       "email" : "groovy { return attributes['mail']?.get(0) }"
+    }
+  },
+  "properties" : {
+    "@class" : "java.util.HashMap",
+    "httpHeaderEnableStrictTransportSecurity" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+      "values" : [ "java.util.HashSet", [ "false" ] ]
     }
   }
 }
