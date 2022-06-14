@@ -1,0 +1,17 @@
+{
+  "@class" : "org.apereo.cas.support.saml.services.SamlRegisteredService",
+  "serviceId" : "edatos-tableau-server",
+  "name" : "TableauServer",
+  "id" : 2,
+  "evaluationOrder" : 10,
+  "metadataLocation" : "classpath:/metadata/sp-tableau-server-metadata.xml",
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "username" : "groovy { return attributes['username'].get(0) }",
+      "displayName" : "groovy { return attributes['name']?.get(0) }",
+      "email" : "groovy { return attributes['mail']?.get(0) }"
+    }
+  }
+}

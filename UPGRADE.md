@@ -16,5 +16,7 @@ Es necesario ejecutar los scripts SQL del proyecto metamac-sso contenidos en la 
   etc/changes-from-release/3.0.12
   ```
 
+En esta versión se le da soporte al SP de edatos-tableau-server que debe configurarse mediante el archivo /metadata/sp-tableau-server-metadata.xml
+
 ## 0.0.0 a 3.0.5
 * El proceso de actualizaciones entre versiones para versiones anteriores a la 3.0.5 está definido en "Metamac - Manual de instalación.doc"
