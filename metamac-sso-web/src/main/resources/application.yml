@@ -13,8 +13,12 @@ cas.serviceRegistry.json.location: classpath:/services/custom
 
 # Resolucion de atributos
 # https://apereo.github.io/cas/5.3.x/integration/Attribute-Resolution.html#multi-row
+# https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#jdbc-1
 cas.authn.attributeRepository.jdbc[0].singleRow: false
 cas.authn.attributeRepository.jdbc[0].columnMappings.acl_name: acl_value
+cas.authn.attributeRepository.jdbc[0].columnMappings.username_name: username_value
+cas.authn.attributeRepository.jdbc[0].columnMappings.name_name: name_value
+cas.authn.attributeRepository.jdbc[0].columnMappings.mail_name: mail_value
 cas.authn.attributeRepository.jdbc[0].username: username
 cas.authn.attributeRepository.jdbc[0].sql: ${metamac.security.datasource.query.attributes}
 cas.authn.attributeRepository.jdbc[0].user: ${metamac.security.datasource.username}
