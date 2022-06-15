@@ -16,6 +16,15 @@
       "email" : "groovy { return attributes['mail']?.get(0) }"
     }
   },
+  "accessStrategy" : {
+    "@class" : "org.jasig.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "delegatedAuthenticationPolicy" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
+      "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS" ] ]
+    },
+    "enabled" : true,
+    "ssoEnabled" : true
+  },
   "properties" : {
     "@class" : "java.util.HashMap",
     "httpHeaderEnableStrictTransportSecurity" : {
