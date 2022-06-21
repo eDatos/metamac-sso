@@ -3,18 +3,13 @@
 <properties>
     <comment>Metamac environment definition</comment>
 
-    <!-- Configuration properties in files -->
-    <entry key="environment.metamac.data">/data/metamac</entry>
+	<!-- Configuration properties in files -->
+	<entry key="environment.metamac.data">/data/metamac</entry>
 
-    <!-- Configuration properties in database (ORACLE) -->
-    <entry key="environment.metamac.configuration.db.username">FILL_ME_WITH_USERNAME</entry>
-    <entry key="environment.metamac.configuration.db.password">FILL_ME_WITH_PASSWORD</entry>
-    <entry key="environment.metamac.configuration.db.url">jdbc:oracle:thin:@FILL_ME_WITH_HOST:FILL_ME_WITH_PORT:FILL_ME_WITH_ORACLE_SID</entry>
-    <entry key="environment.metamac.configuration.db.driver_name">oracle.jdbc.OracleDriver</entry>
-
-    <!-- Configuration properties in database (MSSQL) -->
-    <!-- <entry key="environment.metamac.configuration.db.url">jdbc:sqlserver://FILL_ME_WITH_HOST:FILL_ME_WITH_PORT;databaseName=DATABASE_NAME</entry> -->
-    <!-- <entry key="environment.metamac.configuration.db.username">FILL_ME_WITH_DB_USER</entry> -->
-    <!-- <entry key="environment.metamac.configuration.db.password">FILL_ME_WITH_DB_PASSWORD</entry> -->
-    <!-- <entry key="environment.metamac.configuration.db.driver_name">com.microsoft.sqlserver.jdbc.SQLServerDriver</entry> -->
+	<!-- Configuration properties in database (postgresql) -->
+	<entry key="environment.metamac.configuration.db.username">FILL_ME_WITH_DB_USER</entry>
+	<entry key="environment.metamac.configuration.db.password">FILL_ME_WITH_DB_PASSWORD</entry>
+	<entry key="environment.metamac.configuration.db.url">jdbc:postgresql:thin:@FILL_ME_WITH_HOST:FILL_ME_WITH_PORT/FILL_ME_WITH_DB_NAME</entry>
+	<entry key="environment.metamac.configuration.db.driver_name">org.postgresql.Driver</entry>
+	
 </properties>
