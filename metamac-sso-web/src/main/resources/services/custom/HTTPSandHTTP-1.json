@@ -16,7 +16,7 @@
       "@class" : "java.util.TreeMap",
       "acl" : "acl",
       "username" : "groovy { return attributes['username'].get(0) }",
-      "displayName" : "groovy { return attributes['name']?.get(0) + ' ' + attributes['surname']?.get(0) }",
+      "displayName" : "groovy { return attributes['surname']?.get(0) ? attributes['name']?.get(0) + ' ' + attributes['surname']?.get(0) : attributes['name']?.get(0) }",
       "email" : "groovy { return attributes['mail']?.get(0) }"
     }
   },
