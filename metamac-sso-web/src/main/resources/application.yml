@@ -18,6 +18,7 @@ cas.authn.attributeRepository.jdbc[0].singleRow: false
 cas.authn.attributeRepository.jdbc[0].columnMappings.acl_name: acl_value
 cas.authn.attributeRepository.jdbc[0].columnMappings.username_name: username_value
 cas.authn.attributeRepository.jdbc[0].columnMappings.name_name: name_value
+cas.authn.attributeRepository.jdbc[0].columnMappings.surname_name: surname_value
 cas.authn.attributeRepository.jdbc[0].columnMappings.mail_name: mail_value
 cas.authn.attributeRepository.jdbc[0].username: username
 cas.authn.attributeRepository.jdbc[0].sql: ${metamac.security.datasource.query.attributes}
