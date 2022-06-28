@@ -4,7 +4,7 @@
 -- --------------------------------------------------------------------------------------------------
 
 -- Modificada la consulta que expone los atributos desde el access control para exponer nuevos atributos
-UPDATE metamac_common_metadata_bd.tb_data_configurations
+UPDATE tb_data_configurations
       SET conf_value='SELECT usr.username as username, 
             ''ACL'' as acl_name,  concat(app.code, ''#'', rol.code, ''#'',  operations.code) as acl_value,
             ''username'' as username_name,  username as username_value,
