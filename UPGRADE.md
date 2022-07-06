@@ -8,7 +8,15 @@
 
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
-## 3.0.12 a X.Y.Z
+## 4.0.1 a X.Y.Z
+Es necesario ejecutar los scripts SQL del proyecto metamac-sso contenidos en la carpeta
+  ```shell
+  etc/changes-from-release/4.0.1
+  ```
+
+En esta versión se implementa la resolución de atributos en la respuesta CAS para gestionar los roles de usuarios de CKAN en el Gestor de Accesos de EDATOS.
+
+## 3.0.12 a 4.0.0
 A partir de esta versión de la aplicación se elimina el soporte para bases de datos Oracle o Sql Server, siendo PostgreSQL la única base de datos con soporte.
 
 Es necesario ejecutar los scripts SQL del proyecto metamac-sso contenidos en la carpeta

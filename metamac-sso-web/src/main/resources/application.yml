@@ -18,6 +18,7 @@ cas.authn.attributeRepository.jdbc[0].singleRow: false
 cas.authn.attributeRepository.jdbc[0].columnMappings.acl_name: acl_value
 cas.authn.attributeRepository.jdbc[0].columnMappings.username_name: username_value
 cas.authn.attributeRepository.jdbc[0].columnMappings.name_name: name_value
+cas.authn.attributeRepository.jdbc[0].columnMappings.surname_name: surname_value
 cas.authn.attributeRepository.jdbc[0].columnMappings.mail_name: mail_value
 cas.authn.attributeRepository.jdbc[0].username: username
 cas.authn.attributeRepository.jdbc[0].sql: ${metamac.security.datasource.query.attributes}
@@ -54,6 +55,7 @@ cas.ticket.st.timeToKillInSeconds: 600
 cas.ticket.tst.timeToKillInSeconds: 900
 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#saml-idp
+cas.authn.samlIdp.metadata.location: file:${environment.metamac.data}/sso/saml
 cas.authn.samlIdp.entityId: ${metamac.security.cas_server_url_prefix}/idp
 # Este valor en realidad no parece usarse hasta que pasemos a usar atributos scoped
 # https://apereo.github.io/cas/6.5.x/integration/Attribute-Definitions.html#attribute-definitions

@@ -1,21 +1,27 @@
 {
-  "@class" : "org.jasig.cas.services.RegexRegisteredService",
+  "@class" : "org.apereo.cas.services.RegexRegisteredService",
   "serviceId" : "^(http|https)://.*",
   "name" : "Servicios HTTP/HTTPS",
   "id" : 1,
   "description" : "Este servicio autoriza todas las URL de aplicaciones que usen los protocolos HTTP y HTTPS.",
   "evaluationOrder" : 10,
   "attributeReleasePolicy" : {
-    "@class" : "org.jasig.cas.services.ReturnAllowedAttributeReleasePolicy",
+    "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
     "principalAttributesRepository" : {
-      "@class" : "org.jasig.cas.authentication.principal.DefaultPrincipalAttributesRepository"
+      "@class" : "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
     },
     "authorizedToReleaseCredentialPassword" : false,
     "authorizedToReleaseProxyGrantingTicket" : false,
-    "allowedAttributes" : [ "java.util.ArrayList", [ "acl"] ]
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "acl" : "acl",
+      "username" : "groovy { return attributes['username'].get(0) }",
+      "displayName" : "groovy { return attributes['surname']?.get(0) ? attributes['name']?.get(0) + ' ' + attributes['surname']?.get(0) : attributes['name']?.get(0) }",
+      "email" : "groovy { return attributes['mail']?.get(0) }"
+    }
   },
   "accessStrategy" : {
-    "@class" : "org.jasig.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
     "delegatedAuthenticationPolicy" : {
       "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
       "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS" ] ]
