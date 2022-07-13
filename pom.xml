@@ -3,7 +3,7 @@
     <parent>
         <groupId>org.siemac.metamac.metamac-sso</groupId>
         <artifactId>metamac-sso-parent</artifactId>
-        <version>4.0.2-SNAPSHOT</version>
+        <version>4.1.0</version>
         <relativePath>metamac-sso-parent/pom.xml</relativePath>
     </parent>
 
@@ -15,7 +15,7 @@
         <connection>scm:git:http://git.arte-consultores.com/istac/metamac-sso</connection>
         <developerConnection>scm:git:http://git.arte-consultores.com/istac/metamac-sso</developerConnection>
         <url>http://git.arte-consultores.com/istac/metamac-sso</url>
-        <tag>HEAD</tag>
+        <tag>20220713-1421-v4.1.0</tag>
     </scm>
 
 
