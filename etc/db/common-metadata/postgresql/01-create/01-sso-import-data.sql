@@ -23,6 +23,7 @@ insert into TB_DATA_CONFIGURATIONS (ID,VERSION,SYSTEM_PROPERTY,CONF_KEY,CONF_VAL
             ''ACL'' as acl_name,  concat(app.code, ''#'', rol.code, ''#'',  operations.code) as acl_value,
             ''username'' as username_name,  username as username_value,
             ''name'' as name_name, name as name_value,
+            ''surname'' as surname_name, surname as surname_value,
             ''mail'' as mail_name, mail as mail_value
         FROM TB_ACCESS acc
         LEFT JOIN TB_USERS usr ON acc.USER_FK = usr.ID
