@@ -8,7 +8,7 @@
 
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
-## 4.0.1 a X.Y.Z
+## 4.0.1 a 4.1.0
 Es necesario ejecutar los scripts SQL del proyecto metamac-sso contenidos en la carpeta
   ```shell
   etc/changes-from-release/4.0.1
