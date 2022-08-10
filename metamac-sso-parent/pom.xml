@@ -22,7 +22,7 @@
 
 	<properties>
         <metamac-core-common.version>7.0.2-SNAPSHOT</metamac-core-common.version>
-        <edatos-core-utils.version>1.7.0</edatos-core-utils.version>
+        <edatos-core-utils.version>1.7.1-SNAPSHOT</edatos-core-utils.version>
         <log4j.version>2.16.0</log4j.version>
 	</properties>
 
