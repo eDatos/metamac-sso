@@ -96,17 +96,16 @@
             <artifactId>cas-server-support-oidc</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-oidc-core</artifactId>
         </dependency>
 
-        <dependency>
+
+     <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-oauth</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-oauth-core</artifactId>
@@ -115,11 +114,6 @@
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-oauth-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-core-api-audit</artifactId>
         </dependency>
 
         <dependency>
