@@ -49,7 +49,7 @@ public class OidcImplicitIdTokenAuthorizationResponseBuilder extends OAuth20Toke
 
         final String idToken = this.idTokenGenerator.generate(context.getRequest(),
                 context.getResponse(), accessToken, idTokenExpirationPolicy.getTimeToLive(),
-                OAuth20ResponseTypes.IDTOKEN_TOKEN, holder.getRegisteredService());
+                OAuth20ResponseTypes.IDTOKEN, holder.getRegisteredService());
         LOGGER.debug("Generated id token [{}]", idToken);
         params.add(new BasicNameValuePair(OidcConstants.ID_TOKEN, idToken));
         return super.buildCallbackUrlResponseType(holder, redirectUri, accessToken, params, refreshToken, context);
@@ -58,6 +58,6 @@ public class OidcImplicitIdTokenAuthorizationResponseBuilder extends OAuth20Toke
     @Override
     public boolean supports(final J2EContext context) {
         final String responseType = context.getRequestParameter(OAuth20Constants.RESPONSE_TYPE);
-        return OAuth20Utils.isResponseType(responseType, OAuth20ResponseTypes.IDTOKEN_TOKEN);
+        return OAuth20Utils.isResponseType(responseType, OAuth20ResponseTypes.IDTOKEN);
     }
 }
