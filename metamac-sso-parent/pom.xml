@@ -12,7 +12,7 @@
 
     <groupId>org.siemac.metamac.metamac-sso</groupId>
     <artifactId>metamac-sso-parent</artifactId>
-    <version>4.1.3-SNAPSHOT</version>
+    <version>4.1.4-SNAPSHOT</version> 
     <name>SIEMAC :: SSO :: PARENT</name>
     <packaging>pom</packaging>
 
@@ -21,9 +21,9 @@
         <url>http://jira.arte-consultores.com/browse/METAMAC</url>
     </issueManagement>
 
-    <properties>
-        <metamac-core-common.version>7.1.0</metamac-core-common.version>
-        <edatos-core-utils.version>1.8.0</edatos-core-utils.version>
+	<properties>
+        <metamac-core-common.version>7.2.1-SNAPSHOT</metamac-core-common.version>
+        <edatos-core-utils.version>1.9.1-SNAPSHOT</edatos-core-utils.version>
         <log4j.version>2.16.0</log4j.version>
         <java.version>1.8</java.version>
     </properties>
