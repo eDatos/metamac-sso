@@ -1,0 +1,19 @@
+{
+  "@class" : "org.apereo.cas.services.OidcRegisteredService",
+  "clientId": "openmetadata",
+  "clientSecret": "openmetadata-1234",
+  "serviceId" : "http://localhost:8585/callback",
+  "name": "OIDC",
+  "id": 3,
+  "evaluationOrder" : 10,
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "username" : "groovy { return attributes['username'].get(0) }",
+      "displayName" : "groovy { return attributes['name']?.get(0) }",
+      "email" : "groovy { return attributes['mail']?.get(0) }"
+    }
+  },
+  "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email", "mail" ] ]
+}
