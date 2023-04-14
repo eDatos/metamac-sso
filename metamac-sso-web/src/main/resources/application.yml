@@ -26,7 +26,6 @@ cas.authn.attributeRepository.jdbc[0].user: ${metamac.security.datasource.userna
 cas.authn.attributeRepository.jdbc[0].password: ${metamac.security.datasource.password}
 cas.authn.attributeRepository.jdbc[0].driverClass: ${metamac.security.datasource.driver_name}
 cas.authn.attributeRepository.jdbc[0].url: ${metamac.security.datasource.url}
-cas.authn.attributeRepository.jdbc[0].dialect: ${metamac.security.datasource.dialect}
 
 # Tiempo de expiración de la cache de atributos
 # Estableciendo el valor a 0 no se cachean los atributos y evitamos problemas a la hora de refrescar posibles actualizaciones de roles
