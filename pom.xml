@@ -12,9 +12,9 @@
     <packaging>pom</packaging>
 
 	<scm>
-        <connection>scm:git:http://git.arte-consultores.com/istac/metamac-sso</connection>
-        <developerConnection>scm:git:http://git.arte-consultores.com/istac/metamac-sso</developerConnection>
-        <url>http://git.arte-consultores.com/istac/metamac-sso</url>
+        <connection>scm:git:https://git.arte-consultores.com/istac/metamac-sso</connection>
+        <developerConnection>scm:git:https://git.arte-consultores.com/istac/metamac-sso</developerConnection>
+        <url>https://git.arte-consultores.com/istac/metamac-sso</url>
         <tag>HEAD</tag>
     </scm>
 

@@ -48,6 +48,16 @@ cas.httpWebRequest.header.hsts: false
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#accept-users-authentication
 cas.authn.accept.users: 
 
+#cas.authn.oidc.scopes: openid,profile,email,address,phone,offline_access,testScope
+#cas.authn.oidc.user-defined-scopes.myownscope: email,given_name,preferred_username
+
+# https://apereo.github.io/cas/6.6.x/authentication/OIDC-Authentication-Claims.html
+# https://groups.google.com/a/apereo.org/g/cas-user/c/T9EeA_JXhqw/m/cXo3EzfOCQAJ
+cas.authn.oidc.claimsMap.email: mail
+
+# Debug SQL
+#cas.jdbc.showSql: true
+
 # Tiempos de expiración de tickets
 # https://apereo.github.io/cas/5.0.x/installation/Configuration-Properties.html#service-ticket
 cas.ticket.st.timeToKillInSeconds: 600 
