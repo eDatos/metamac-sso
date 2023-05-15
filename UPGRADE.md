@@ -11,10 +11,6 @@
 ## ## 4.2.1 a 4.2.2-SNAPSHOT
 - Se han realizado cambios a la base de datos, por ello se proveen una serie de scripts SQL para adaptarse a la nueva versión. 
   Ejecutar los scripts de la siguiente ruta en el esquema correspondiente por orden de fecha: [etc/changes-from-release/4.2.1/db/common-metadata/postgresql/](etc/changes-from-release/4.2.1/db/common-metadata/postgresql)
-  
-## 4.1.3 a 4.1.4-SNAPSHOT
-- Se han realizado cambios a la base de datos, por ello se proveen una serie de scripts SQL para adaptarse a la nueva versión. 
-  Ejecutar los scripts de la siguiente ruta en el esquema correspondiente por orden de fecha: [etc/changes-from-release/4.1.3/db/common-metadata/postgresql/](etc/changes-from-release/4.1.3/db/common-metadata/postgresql)
 
 ## 4.0.1 a 4.1.0
 Es necesario ejecutar los scripts SQL del proyecto metamac-sso contenidos en la carpeta
