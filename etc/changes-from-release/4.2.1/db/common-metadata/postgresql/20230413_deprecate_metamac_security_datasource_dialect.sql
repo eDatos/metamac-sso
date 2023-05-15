@@ -1,5 +1,5 @@
 -- --------------------------------------------------------------------------------------------------
--- EDATOS-3324 - [CORE] Comprobar si se puede eliminar el dialecto de las propiedades de BBDD de todas las aplicaciones
+-- EDATOS-2234 - [CORE] Comprobar si se puede eliminar el dialecto de las propiedades de BBDD de todas las aplicaciones
 -- 
 -- Se depreca la propiedad con el valor metamac.security.datasource.dialect
 -- --------------------------------------------------------------------------------------------------
