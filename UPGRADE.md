@@ -8,6 +8,10 @@
 
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
+## ## 4.2.1 a 4.2.2-SNAPSHOT
+- Se han realizado cambios a la base de datos, por ello se proveen una serie de scripts SQL para adaptarse a la nueva versión. 
+  Ejecutar los scripts de la siguiente ruta en el esquema correspondiente por orden de fecha: [etc/changes-from-release/4.2.1/db/common-metadata/postgresql/](etc/changes-from-release/4.2.1/db/common-metadata/postgresql)
+  
 ## 4.1.3 a 4.1.4-SNAPSHOT
 - Se han realizado cambios a la base de datos, por ello se proveen una serie de scripts SQL para adaptarse a la nueva versión. 
   Ejecutar los scripts de la siguiente ruta en el esquema correspondiente por orden de fecha: [etc/changes-from-release/4.1.3/db/common-metadata/postgresql/](etc/changes-from-release/4.1.3/db/common-metadata/postgresql)
