@@ -1,8 +1,8 @@
 -- --------------------------------------------------------------------------------------------------
--- EDATOS-2234 - [CORE] Comprobar si se puede eliminar el dialecto de las propiedades de BBDD de todas las aplicaciones
+-- EDATOS-4125 - Eliminar la propiedad del dialecto de BBDD
 -- 
--- Se depreca la propiedad con el valor metamac.security.datasource.dialect
+-- Se elimina la propiedad con el valor metamac.security.datasource.dialect
 -- --------------------------------------------------------------------------------------------------
 
-update tb_data_configurations set conf_key = 'deprecated.metamac.security.datasource.dialect' where conf_key ='metamac.security.datasource.dialect';
+delete from tb_data_configurations where conf_key = 'deprecated.metamac.security.datasource.dialect';
 commit;
