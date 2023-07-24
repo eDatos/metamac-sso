@@ -4,7 +4,7 @@
   "name" : "OpenMetadata",
   "id" : 3,
   "evaluationOrder" : 10,
-  "metadataLocation" : "E:/apache-tomcat-8.5.82/webapps/metadata/sp-openmetadata-metadata.xml",
+  "metadataLocation" : "classpath:/metadata/sp-openmetadata-metadata.xml",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
      "authorizedToReleaseCredentialPassword" : false,
