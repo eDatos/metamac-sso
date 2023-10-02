@@ -212,7 +212,7 @@ public class PersonDirectoryPrincipalResolver implements PrincipalResolver {
                 return principal.getId();
             }
         }
-        final String id = credential.getId();
+        final String id = StringUtils.lowerCase(credential.getId());
         LOGGER.debug("Extracted principal id [{}]", id);
         return id;
     }
