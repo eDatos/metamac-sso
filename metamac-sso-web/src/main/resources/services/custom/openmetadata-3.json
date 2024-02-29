@@ -1,6 +1,6 @@
 {
   "@class" : "org.apereo.cas.support.saml.services.SamlRegisteredService",
-  "serviceId" : "OpenMetadata-Demo",
+  "serviceId" : "edatos-openmetadata",
   "name" : "OpenMetadata",
   "id" : 3,
   "evaluationOrder" : 10,
