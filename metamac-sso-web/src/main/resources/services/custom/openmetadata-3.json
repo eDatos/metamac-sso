@@ -1,7 +1,7 @@
 {
   "@class" : "org.apereo.cas.support.saml.services.SamlRegisteredService",
   "serviceId" : "edatos-openmetadata",
-  "name" : "OpenMetadata",
+  "name" : "edatos-openmetadata",
   "id" : 3,
   "evaluationOrder" : 10,
   "metadataLocation" : "classpath:/metadata/sp-openmetadata-metadata.xml",
