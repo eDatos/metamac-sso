@@ -53,6 +53,7 @@ cas.authn.accept.users:
 # https://apereo.github.io/cas/6.6.x/authentication/OIDC-Authentication-Claims.html
 # https://groups.google.com/a/apereo.org/g/cas-user/c/T9EeA_JXhqw/m/cXo3EzfOCQAJ
 cas.authn.oidc.claimsMap.email: mail
+cas.authn.oidc.jwks-file: file:${environment.metamac.data}/sso/config/keystore.jwks 
 
 # Debug SQL
 #cas.jdbc.showSql: true
