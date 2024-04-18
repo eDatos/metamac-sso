@@ -1,13 +1,14 @@
 {
-  "@class" : "org.apereo.cas.services.OidcRegisteredService",
-  "clientId": "openmetadata",
-  "clientSecret": "openmetadata-1234",
-  "serviceId" : "http://localhost:8585/callback",
-  "name": "OIDC",
-  "id": 3,
+  "@class" : "org.apereo.cas.support.saml.services.SamlRegisteredService",
+  "serviceId" : "edatos-openmetadata",
+  "name" : "edatos-openmetadata",
+  "id" : 3,
   "evaluationOrder" : 10,
+  "metadataLocation" : "classpath:/metadata/sp-openmetadata-metadata.xml",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
+     "authorizedToReleaseCredentialPassword" : false,
+    "authorizedToReleaseProxyGrantingTicket" : false,
     "allowedAttributes" : {
       "@class" : "java.util.TreeMap",
       "username" : "groovy { return attributes['username'].get(0) }",
@@ -15,5 +16,20 @@
       "email" : "groovy { return attributes['mail']?.get(0) }"
     }
   },
-  "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email", "mail" ] ]
+  "accessStrategy" : {
+    "@class" : "org.jasig.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "delegatedAuthenticationPolicy" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
+      "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS" ] ]
+    },
+    "enabled" : true,
+    "ssoEnabled" : true
+  },
+  "properties" : {
+    "@class" : "java.util.HashMap",
+    "httpHeaderEnableStrictTransportSecurity" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+      "values" : [ "java.util.HashSet", [ "false" ] ]
+    }
+  }
 }
