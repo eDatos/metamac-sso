@@ -2,7 +2,7 @@
     "@class" : "org.apereo.cas.support.oauth.services.OAuthRegisteredService",
     "clientId": "grafana_admin",
     "clientSecret": "grafana_admin",
-    "serviceId" : "^(http|https|imaps)://192.168.10.110:3000.*",
+    "serviceId" : "^(http|https|imaps)://.*grafana.*",
     "bypassApprovalPrompt": true,
     "name" : "OAuthService",
     "id" : 4,
