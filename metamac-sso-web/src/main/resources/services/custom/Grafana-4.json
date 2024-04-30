@@ -1,0 +1,13 @@
+{
+    "@class" : "org.apereo.cas.support.oauth.services.OAuthRegisteredService",
+    "clientId": "grafana_admin",
+    "clientSecret": "grafana_admin",
+    "serviceId" : "^(http|https|imaps)://.*grafana.*",
+    "bypassApprovalPrompt": true,
+    "name" : "OAuthService",
+    "id" : 4,
+    "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code"] ],
+    "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
+    "jsonFormat": true
+  }
+  

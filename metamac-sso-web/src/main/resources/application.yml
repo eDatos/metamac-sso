@@ -71,3 +71,6 @@ cas.authn.samlIdp.entityId: ${metamac.security.cas_server_url_prefix}/idp
 # https://apereo.github.io/cas/6.5.x/integration/Attribute-Definitions.html#attribute-definitions
 # Hasta entonces, puede tener un valor no significativo
 cas.authn.samlIdp.scope: edatos.io
+
+# Forma de visualización del userprofile
+cas.authn.oauth.userProfileViewType: FLAT
