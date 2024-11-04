@@ -4,10 +4,14 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta th:if="${pac4jUrls}" http-equiv="refresh" th:content="'0; url=' + ${pac4jUrls[0].redirectUrl}" />
- 
+    <th:block th:if="${pac4jUrls}">
+        <!-- If more than one autoRedirect, only last one will execute, check order and values on loop inside body -->
+        <meta th:each="pac4jUrl : ${pac4jUrls}" th:if="${pac4jUrl.autoRedirect}" http-equiv="refresh" th:content="'0; url=' + ${pac4jUrl.redirectUrl}" />
+    </th:block>
+
     <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">CAS &#8211; Central Authentication Service</title>
 </head>
 <body>
+    <div style="display: none;" th:if="${pac4jUrls}" th:each="pac4jUrl : ${pac4jUrls}" th:text="${pac4jUrl.toString()}"></div>
 </body>
 </html>
