@@ -209,7 +209,7 @@ public class PersonDirectoryPrincipalResolver implements PrincipalResolver {
             LOGGER.debug("Principal is currently resolved as [{}]", principal);
             if (useCurrentPrincipalId) {
                 LOGGER.debug("Using the existing resolved principal id [{}]", principal.getId());
-                return principal.getId();
+                return StringUtils.lowerCase(principal.getId());
             }
         }
         final String id = StringUtils.lowerCase(credential.getId());
