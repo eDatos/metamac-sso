@@ -35,7 +35,7 @@ cas.authn.attributeRepository.expirationTime: 0
 # Autenticacion delegada
 # https://apereo.github.io/cas/5.3.x/integration/Delegate-Authentication.html
 cas.authn.pac4j.cas[0].loginUrl: ${metamac.security.delegated.login_url}
-cas.authn.pac4j.cas[0].autoRedirect: true
+cas.authn.pac4j.cas[0].autoRedirect: ${cas.custom.properties.casAutoRedirect:true}
 cas.authn.pac4j.cas[0].clientName: DELEGATED_CAS
 
 # Control de cabeceras
@@ -53,7 +53,7 @@ cas.authn.accept.users:
 # https://apereo.github.io/cas/6.6.x/authentication/OIDC-Authentication-Claims.html
 # https://groups.google.com/a/apereo.org/g/cas-user/c/T9EeA_JXhqw/m/cXo3EzfOCQAJ
 cas.authn.oidc.claimsMap.email: mail
-cas.authn.oidc.jwks-file: file:${environment.metamac.data}/sso/config/keystore.jwks 
+cas.authn.oidc.jwks-file: file:${environment.metamac.data}/sso/config/oidc-keystore.jwks 
 
 # Debug SQL
 #cas.jdbc.showSql: true
@@ -65,7 +65,7 @@ cas.ticket.st.timeToKillInSeconds: 600
 cas.ticket.tst.timeToKillInSeconds: 900
 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#saml-idp
-cas.authn.samlIdp.metadata.location: file:${environment.metamac.data}/sso/saml
+cas.authn.samlIdp.metadata.location: file:${environment.metamac.data}/sso/saml/idp
 cas.authn.samlIdp.entityId: ${metamac.security.cas_server_url_prefix}/idp
 # Este valor en realidad no parece usarse hasta que pasemos a usar atributos scoped
 # https://apereo.github.io/cas/6.5.x/integration/Attribute-Definitions.html#attribute-definitions
