@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.siemac.metamac</groupId>
         <artifactId>metamac-parent</artifactId>
-        <version>5.0.1-SNAPSHOT</version>
+        <version>5.0.1</version>
         <relativePath>../metamac-parent/pom.xml</relativePath>
     </parent>
 
@@ -21,7 +21,7 @@
     </issueManagement>
 
 	<properties>
-        <metamac-core-common.version>8.2.1-SNAPSHOT</metamac-core-common.version>
+        <metamac-core-common.version>8.2.1</metamac-core-common.version>
         <edatos-core-utils.version>1.19.0</edatos-core-utils.version>
         <log4j.version>2.16.0</log4j.version>
         <java.version>1.8</java.version>
