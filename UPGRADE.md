@@ -8,7 +8,7 @@
 
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
-## 4.6.4 a 4.6.5-SNAPSHOT
+## 4.6.4 a 4.7.0
 * Se ha modificado el nombre y ruta de ciertas configuraciones a fin de presentar un aspecto más estándar y ordenado
 - Se ha de mover el contenido de file:${environment.metamac.data}/sso/saml a file:${environment.metamac.data}/sso/saml/idp
 - Se ha renombrado file:${environment.metamac.data}/sso/config/keystore.jwks  como file:${environment.metamac.data}/sso/config/oidc-keystore.jwks
