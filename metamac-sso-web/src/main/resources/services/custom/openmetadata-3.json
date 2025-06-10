@@ -4,7 +4,7 @@
   "name" : "edatos-openmetadata",
   "id" : 3,
   "evaluationOrder" : 10,
-  "metadataLocation" : "classpath:/metadata/sp-openmetadata-metadata.xml",
+  "metadataLocation" : "file:/data/edatos/authentication-service/conf/metadata/sp-openmetadata-metadata.xml",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
      "authorizedToReleaseCredentialPassword" : false,

@@ -4,7 +4,7 @@
   "name" : "TableauServer",
   "id" : 2,
   "evaluationOrder" : 10,
-  "metadataLocation" : "classpath:/metadata/sp-tableau-server-metadata.xml",
+  "metadataLocation" : "file:/data/edatos/authentication-service/conf/metadata/metadata/sp-tableau-server-metadata.xml",
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
      "authorizedToReleaseCredentialPassword" : false,
