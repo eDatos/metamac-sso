@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>Metamac environment definition</comment>
+
+	<!-- Configuration properties in files -->
+	<entry key="environment.metamac.data">/data/edatos/authentication-service</entry>
+
+	<!-- Configuration properties in database (postgresql) -->
+    <entry key="environment.metamac.configuration.db.username">FILL_ME_WITH_DB_USER</entry>
+    <entry key="environment.metamac.configuration.db.password">FILL_ME_WITH_DB_PASSWORD</entry>
+    <entry key="environment.metamac.configuration.db.url">jdbc:postgresql:thin:@FILL_ME_WITH_HOST:FILL_ME_WITH_PORT/FILL_ME_WITH_DB_NAME</entry>
+    <entry key="environment.metamac.configuration.db.driver_name">org.postgresql.Driver</entry>
+	
+</properties>

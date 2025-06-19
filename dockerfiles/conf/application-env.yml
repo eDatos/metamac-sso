@@ -1,0 +1,16 @@
+# Registro de servicios
+cas.serviceRegistry.json.location: file:/data/edatos/authentication-service/conf/services/custom
+cas.authn.samlIdp.metadata.location: file:/data/edatos/authentication-service/sso/saml/idp
+
+spring:
+  datasource:
+    url: jdbc:postgresql://FILL_ME_WITH_HOST:FILL_ME_WITH_PORT/FILL_ME_WITH_DB_NAME
+    username: FILL_ME
+    password: FILL_ME
+    driver-class-name: org.postgresql.Driver
+
+server:
+  context-path: /authentication-service-internal
+  ssl:
+    enabled: false
+  port: 8080

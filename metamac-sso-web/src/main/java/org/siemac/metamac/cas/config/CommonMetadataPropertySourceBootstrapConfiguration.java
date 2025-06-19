@@ -1,5 +1,6 @@
 package org.siemac.metamac.cas.config;
 
+import java.io.File;
 import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
@@ -14,6 +15,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 
 @Configuration
 public class CommonMetadataPropertySourceBootstrapConfiguration implements PropertySourceLocator {
@@ -23,7 +26,14 @@ public class CommonMetadataPropertySourceBootstrapConfiguration implements Prope
     @Bean("configurationService")
     public ConfigurationServiceImpl configurationService() {
         ConfigurationServiceImpl configurationServiceImpl = new ConfigurationServiceImpl();
-        configurationServiceImpl.setSystemConfigurationFile(new ClassPathResource("metamac/environment.xml"));
+
+        String environmentPath = System.getenv("AUTHENTICATION_SERVICE_CONF_PATH");
+        Resource resource = (environmentPath != null && new File(environmentPath).isFile())
+                ? new FileSystemResource(environmentPath)
+                : new ClassPathResource("metamac/environment.xml");
+
+        configurationServiceImpl.setSystemConfigurationFile(resource);
+
         return configurationServiceImpl;
     }
 
