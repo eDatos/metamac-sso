@@ -25,7 +25,7 @@ LABEL MAINTAINER=info@arte-consultores.com
 
 RUN mkdir -p /data/edatos/authentication-service/conf
 RUN mkdir -p /data/edatos/authentication-service/logs
-RUN mkdir -p /data/edatos/authentication-service/sso/saml/idp
+RUN mkdir -p /data/edatos/authentication-service/saml/idp
 
 COPY dockerfiles/conf /data/edatos/authentication-service/conf
 COPY metamac-sso-web/target/*.war /data/edatos/authentication-service/authentication-service-internal.war
