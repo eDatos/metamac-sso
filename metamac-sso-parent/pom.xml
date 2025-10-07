@@ -11,7 +11,7 @@
 
     <groupId>org.siemac.metamac.metamac-sso</groupId>
     <artifactId>metamac-sso-parent</artifactId>
-    <version>4.11.2-SNAPSHOT</version>
+    <version>4.11.3-SNAPSHOT</version>
     <name>SIEMAC :: SSO :: PARENT</name>
     <packaging>pom</packaging>
 
@@ -21,8 +21,8 @@
     </issueManagement>
 
 	<properties>
-        <metamac-core-common.version>8.7.1-SNAPSHOT</metamac-core-common.version>
-        <edatos-core-utils.version>1.23.1-SNAPSHOT</edatos-core-utils.version>
+        <metamac-core-common.version>8.7.1</metamac-core-common.version>
+        <edatos-core-utils.version>1.23.1</edatos-core-utils.version>
         <log4j.version>2.16.0</log4j.version>
         <java.version>1.8</java.version>
     </properties>
