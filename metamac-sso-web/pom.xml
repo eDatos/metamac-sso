@@ -78,6 +78,12 @@
             <artifactId>cas-server-support-pac4j-webflow</artifactId>                    
         </dependency>
 
+        <!-- CAS Delegate authentication -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-pac4j-cas</artifactId>
+        </dependency>
+        
         <!-- Service registry -->
         <dependency>
             <groupId>org.apereo.cas</groupId>
@@ -102,6 +108,12 @@
           <artifactId>cas-server-core-services-authentication</artifactId>         
         </dependency>
         
+        <!-- Attribute resolution - JDBC -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jdbc</artifactId>
+        </dependency>
+
         <!-- Allow CAS to be used as SAML2 idp  https://apereo.github.io/cas/5.3.x/installation/Configuring-SAML2-Authentication.html -->
         <dependency>
           <groupId>org.apereo.cas</groupId>
