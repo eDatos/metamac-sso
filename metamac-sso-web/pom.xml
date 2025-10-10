@@ -30,10 +30,7 @@
                     <overlays>
                         <overlay>
                             <groupId>org.apereo.cas</groupId>
-                            <artifactId>cas-server-webapp</artifactId>                            
-                            <excludes>
-                                <exclude>WEB-INF/lib/log4j*</exclude>                                
-                            </excludes>
+                            <artifactId>cas-server-webapp</artifactId>
                         </overlay>
                     </overlays>
                 </configuration>
@@ -187,29 +184,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <!-- log4j dependency override -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-        </dependency>
-          <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-jcl</artifactId>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-web</artifactId>
-          </dependency>
-        
+        </dependency>        
         <!-- Common Metadata configuration properties -->
         <dependency>
             <groupId>org.siemac.metamac</groupId>
