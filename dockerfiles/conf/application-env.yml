@@ -6,7 +6,8 @@ cas:
   authn:
     saml-idp:
       metadata:
-        location: file:/data/edatos/authentication-service/saml/idp
+        file-system:
+          location: file:/data/edatos/authentication-service/saml/idp
     oidc:
       jwks:
         file-system:
