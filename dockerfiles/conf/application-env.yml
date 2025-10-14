@@ -8,7 +8,9 @@ cas:
       metadata:
         location: file:/data/edatos/authentication-service/saml/idp
     oidc:
-      jwks-file: file:/data/edatos/authentication-service/conf/oidc-keystore.jwks
+      jwks:
+        file-system:
+          jwks-file: file:/data/edatos/authentication-service/conf/oidc-keystore.jwks
 
 spring:
   datasource:

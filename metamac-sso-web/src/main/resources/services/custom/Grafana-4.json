@@ -8,6 +8,7 @@
     "id" : 4,
     "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code"] ],
     "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
-    "jsonFormat": true
+    "jsonFormat": true,
+    "userProfileViewType": "FLAT"
   }
   
