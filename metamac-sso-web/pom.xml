@@ -52,7 +52,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>org.siemac.metamac.cas.MetamacSsoWebApplication</mainClass>
+                    <mainClass>org.apereo.cas.web.CasWebApplication</mainClass>
                     <executable>true</executable>
                     <!-- Enable the line below to have remote debugging of your application on port 5005 -->
                     <!-- <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments> -->
@@ -65,6 +65,12 @@
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-webapp</artifactId>
+            <type>war</type>
+            <scope>runtime</scope>
+        </dependency> 
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-webapp-tomcat</artifactId>
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
