@@ -6,6 +6,10 @@ cas.server.prefix: ${metamac.security.cas_server_url_prefix}
 # Redirigimos contra el logout del CAS delegado para finalizar el logout
 cas.logout.redirectUrl: ${metamac.security.delegated.logout_url}
 
+##
+# Allow configuration classes to override bean definitions from Spring Boot
+#
+spring.main.allow-bean-definition-overriding: true
 
 # Registro de servicios
 # https://apereo.github.io/cas/5.3.x/installation/AutoInitialization-Service-Management.html#service-registry-initialization
