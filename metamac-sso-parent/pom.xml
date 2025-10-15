@@ -23,6 +23,7 @@
 	<properties>
         <metamac-core-common.version>8.7.1</metamac-core-common.version>
         <edatos-core-utils.version>1.23.1</edatos-core-utils.version>
+        <jboss-logging.version>3.6.1.Final</jboss-logging.version>
         <java.version>21</java.version>
     </properties>
     <build>
