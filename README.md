@@ -18,3 +18,10 @@ Eliminar el archivo /metamac-sso-web/src/main/resources/templates/layout.html si
 * Modificar directamente los archivos de services/custom/*.json, se refleja automáticamente
 * Modificar directamente los archivos de metadata/*.xml, NO se reflejan automáticamente
 
+# URLs para pruebas
+En situaciones donde tenemos configurada de manera múltiple la autenticación delegada, podemos recurrir a esta URL para activar uno u otro,
+dado que la botonera que está para estos casos nosotros no la dibujamos.
+
+    <url sso>/clientredirect?client_name=DELEGATED_CAS
+    <url sso>/clientredirect?client_name=SAML2EDatosSSOClient
+
