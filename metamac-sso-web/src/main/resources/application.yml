@@ -15,8 +15,8 @@ cas.logout.redirectUrl: ${metamac.security.delegated.logout_url}
 spring.main.allow-bean-definition-overriding: true
 
 # Registro de servicios
-# https://apereo.github.io/cas/5.3.x/installation/AutoInitialization-Service-Management.html#service-registry-initialization
-cas.serviceRegistry.json.location: classpath:/services/custom
+# https://apereo.github.io/cas/7.3.x/services/JSON-Service-Management.html
+cas.service-registry.json.location: classpath:/services/custom
 
 # Resolucion de atributos
 # https://apereo.github.io/cas/5.3.x/integration/Attribute-Resolution.html#multi-row
