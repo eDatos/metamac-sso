@@ -3,6 +3,9 @@
 cas.server.name: metamac-sso-web
 cas.server.prefix: ${metamac.security.cas_server_url_prefix}
 
+# Para poder trabajar como HTTP tras un proxy https
+server.forward-headers-strategy: framework
+
 # Redirigimos contra el logout del CAS delegado para finalizar el logout
 cas.logout.redirectUrl: ${metamac.security.delegated.logout_url}
 
