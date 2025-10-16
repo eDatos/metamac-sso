@@ -52,14 +52,6 @@ cas.httpWebRequest.header.hsts: false
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#accept-users-authentication
 cas.authn.accept.users: 
 
-#cas.authn.oidc.scopes: openid,profile,email,address,phone,offline_access,testScope
-#cas.authn.oidc.user-defined-scopes.myownscope: email,given_name,preferred_username
-
-# https://apereo.github.io/cas/6.6.x/authentication/OIDC-Authentication-Claims.html
-# https://groups.google.com/a/apereo.org/g/cas-user/c/T9EeA_JXhqw/m/cXo3EzfOCQAJ
-cas.authn.oidc.core.issuer: ${metamac.security.cas_server_url_prefix}/caic
-cas.authn.oidc.core.claims-map.email: mail
-cas.authn.oidc.jwks.file-system.jwks-file: file:${environment.metamac.data}/sso/config/oidc-keystore.jwks 
 
 # Debug SQL
 #cas.jdbc.showSql: true
