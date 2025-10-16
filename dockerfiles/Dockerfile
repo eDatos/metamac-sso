@@ -42,4 +42,4 @@ RUN env
 # Exponer el puerto típico de Spring Boot
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-Dlog.dir=/data/edatos/authentication-service/logs", "-jar", "/data/edatos/authentication-service/authentication-service-internal.war"]
+ENTRYPOINT ["java", "-Dlog.dir=/data/edatos/authentication-service/logs", "-Dserver.servlet.context-path=authentication-service-internal", "-jar", "/data/edatos/authentication-service/authentication-service-internal.war"]
