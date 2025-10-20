@@ -116,6 +116,12 @@
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-jdbc</artifactId>
         </dependency>
+        
+        <!-- Allow groovy scripting - https://apereo.github.io/cas/7.3.x/integration/Apache-Groovy-Scripting.html -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-core-scripting</artifactId>
+        </dependency>
 
         <!-- Allow CAS to be used as SAML2 idp  https://apereo.github.io/cas/5.3.x/installation/Configuring-SAML2-Authentication.html -->
         <dependency>
