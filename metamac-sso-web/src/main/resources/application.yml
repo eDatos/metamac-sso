@@ -42,7 +42,7 @@ cas.authn.attribute-repository.core.expiration-time: 0
 # Autenticacion delegada
 # https://apereo.github.io/cas/5.3.x/integration/Delegate-Authentication.html
 cas.authn.pac4j.cas[0].loginUrl: ${metamac.security.delegated.login_url}
-cas.authn.pac4j.cas[0].autoRedirect: ${cas.custom.properties.casAutoRedirect:true}
+cas.authn.pac4j.cas[0].autoRedirectType: ${cas.custom.properties.casAutoRedirect:SERVER}
 cas.authn.pac4j.cas[0].clientName: DELEGATED_CAS
 
 # Control de cabeceras
