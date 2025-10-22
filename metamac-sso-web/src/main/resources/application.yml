@@ -54,6 +54,8 @@ cas.httpWebRequest.header.hsts: false
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#accept-users-authentication
 cas.authn.accept.users: 
 
+# https://apereo.github.io/cas/7.3.x/installation/Configuring-Principal-Resolution.html#caspersondirectoryprincipaltransformationcaseconversionPropertyConfig
+cas.person-directory.principal-transformation.case-conversion: LOWERCASE
 
 # Debug SQL
 #cas.jdbc.showSql: true
