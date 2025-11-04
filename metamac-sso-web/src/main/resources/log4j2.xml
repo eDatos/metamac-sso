@@ -96,7 +96,7 @@
         <AsyncLogger name="org.siemac.metamac" level="info" />
 
         <!-- Log perf stats only to perfStats.log -->
-        <AsyncLogger name="perfStatsLogger" level="info" additivity="false" includeLocation="true">
+        <AsyncLogger name="perfStatsLogger" level="error" additivity="false" includeLocation="true">
             <AppenderRef ref="casPerf"/>
         </AsyncLogger>
 
