@@ -1,6 +1,10 @@
 package org.siemac.metamac.cas.config;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
@@ -28,10 +32,11 @@ public class CommonMetadataPropertySourceBootstrapConfiguration implements Prope
         ConfigurationServiceImpl configurationServiceImpl = new ConfigurationServiceImpl();
 
         String environmentPath = System.getenv("AUTHENTICATION_SERVICE_CONF_PATH");
+        //@formatter:off
         Resource resource = (environmentPath != null && new File(environmentPath).isFile())
                 ? new FileSystemResource(environmentPath)
                 : new ClassPathResource("metamac/environment.xml");
-
+        //@formatter:on
         configurationServiceImpl.setSystemConfigurationFile(resource);
 
         return configurationServiceImpl;
@@ -39,25 +44,54 @@ public class CommonMetadataPropertySourceBootstrapConfiguration implements Prope
 
     @Override
     public PropertySource<?> locate(Environment environment) {
-        Properties decodedProperties = decode(configurationService().getProperties());
+        Properties decodedProperties = process(configurationService().getProperties());
         return new PropertiesPropertySource(getClass().getSimpleName(), decodedProperties);
     }
 
-    private Properties decode(Properties properties) {
-        Properties decodeProperties = new Properties();
+    private Properties process(Properties properties) {
+        Properties processedProperties = new Properties();
         for (String key : properties.stringPropertyNames()) {
+            String value = properties.getProperty(key);
             if (key.endsWith(".password")) {
                 try {
-                    decodeProperties.setProperty(key, MetamacEncryptor.decrypt(properties.getProperty(key)));
+                    processedProperties.setProperty(key, MetamacEncryptor.decrypt(value));
                 } catch (Exception e) {
                     LOGGER.error("An error has ocurred decrypting password property: " + key, e);
-                    decodeProperties.setProperty(key, StringUtils.EMPTY);
+                    processedProperties.setProperty(key, StringUtils.EMPTY);
                 }
             } else {
-                decodeProperties.setProperty(key, properties.getProperty(key));
+                switch (key) {
+                    case "metamac.security.cas_server_url_prefix":
+                        try {
+                            URI uri = new URI(value);
+                            URL url = uri.toURL();
+
+                            String casServerName = buildCasServerName(url);
+                            processedProperties.setProperty("generated.cas.server.name", casServerName);
+                            LOGGER.info("Generated property 'generated.cas.server.name' with value: " + casServerName);
+
+                            String edatosContext = url.getPath();
+                            processedProperties.setProperty("generated.edatos.context", edatosContext);
+                            LOGGER.info("Generated property 'generated.edatos.context' with value: " + edatosContext);
+                        } catch (URISyntaxException | MalformedURLException e) {
+                            LOGGER.error("An error has ocurred parsing URL: " + value, e);
+                            e.printStackTrace();
+                        }
+                    default:
+                        processedProperties.setProperty(key, properties.getProperty(key));
+                        break;
+                }
             }
         }
-        return decodeProperties;
+        return processedProperties;
+    }
+
+    private String buildCasServerName(URL url) {
+        String casServerName = url.getProtocol() + "://" + url.getHost();
+        if (url.getPort() != -1) {
+            casServerName += ":" + url.getPort();
+        }
+        return casServerName;
     }
 
 }

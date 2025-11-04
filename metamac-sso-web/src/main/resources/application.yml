@@ -1,7 +1,11 @@
-# https://apereo.github.io/cas/5.3.x/installation/Configuration-Server-Management.html#standalone
-
-cas.server.name: metamac-sso-web
+# https://apereo.github.io/cas/7.2.x/configuration/Configuration-Management.html
+# In other CAS we could see cas.server.prefix: ${cas.server.name}${edatos.context} instead, but
+# because here we have that property in common-metadata to use in other places, we use it and build the other two from it
 cas.server.prefix: ${metamac.security.cas_server_url_prefix}
+# This properties will be generated on org.siemac.metamac.cas.config.CommonMetadataPropertySourceBootstrapConfiguration
+# And derived from cas.server.prefix
+edatos.context: ${generated.edatos.context}
+cas.server.name: ${generated.cas.server.name}
 
 # Para poder trabajar como HTTP tras un proxy https
 server.forward-headers-strategy: framework
@@ -9,9 +13,7 @@ server.forward-headers-strategy: framework
 # Redirigimos contra el logout del CAS delegado para finalizar el logout
 cas.logout.redirectUrl: ${metamac.security.delegated.logout_url}
 
-##
 # Allow configuration classes to override bean definitions from Spring Boot
-#
 spring.main.allow-bean-definition-overriding: true
 
 # Registro de servicios
@@ -73,3 +75,8 @@ cas.authn.saml-idp.core.entity-id: ${metamac.security.cas_server_url_prefix}/idp
 # https://apereo.github.io/cas/6.5.x/integration/Attribute-Definitions.html#attribute-definitions
 # Hasta entonces, puede tener un valor no significativo
 cas.server.scope: edatos.io
+
+# CAS Locale
+# https://apereo.github.io/cas/development/ux/User-Interface-Customization-Localization.html
+cas.locale.cookie.path: ${edatos.context}
+
