@@ -133,6 +133,12 @@
           <groupId>org.apereo.cas</groupId>
           <artifactId>cas-server-support-saml-idp</artifactId>
         </dependency>
+        
+        <!-- Allow CAS to be used with a SAML2 delegated authentication https://apereo.github.io/cas/7.2.x/integration/Delegate-Authentication-SAML2.html -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-pac4j-saml</artifactId>
+        </dependency>
 
      <dependency>
             <groupId>org.apereo.cas</groupId>
