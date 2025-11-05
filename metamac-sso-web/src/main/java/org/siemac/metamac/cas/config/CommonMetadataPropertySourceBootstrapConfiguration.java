@@ -56,7 +56,7 @@ public class CommonMetadataPropertySourceBootstrapConfiguration implements Prope
                 try {
                     processedProperties.setProperty(key, MetamacEncryptor.decrypt(value));
                 } catch (Exception e) {
-                    LOGGER.error("An error has ocurred decrypting password property: " + key, e);
+                    LOGGER.warn("An error has ocurred decrypting password property: " + key, e.getMessage());
                     processedProperties.setProperty(key, StringUtils.EMPTY);
                 }
             } else {
