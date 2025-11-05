@@ -23,37 +23,13 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
-        <RollingFile name="auditlogfile" fileName="${sys:cas.log.dir}/cas_audit.log" append="true"
-                     filePattern="${sys:cas.log.dir}/cas_audit-%d{yyyy-MM-dd-HH}-%i.log">
-            <PatternLayout pattern="%d %p [%c] - %m%n"/>
-            <Policies>
-                <OnStartupTriggeringPolicy />
-                <SizeBasedTriggeringPolicy size="10 MB"/>
-                <TimeBasedTriggeringPolicy />
-            </Policies>
-        </RollingFile>
 
-        <RollingFile name="perfFileAppender" fileName="${sys:cas.log.dir}/perfStats.log" append="true"
-                     filePattern="${sys:cas.log.dir}/perfStats-%d{yyyy-MM-dd-HH}-%i.log">
-            <PatternLayout pattern="%m%n"/>
-            <Policies>
-                <OnStartupTriggeringPolicy />
-                <SizeBasedTriggeringPolicy size="10 MB"/>
-                <TimeBasedTriggeringPolicy />
-            </Policies>
-        </RollingFile>
-
-        <CasAppender name="casAudit">
-            <AppenderRef ref="auditlogfile" />
-        </CasAppender>
+        
         <CasAppender name="casFile">
             <AppenderRef ref="file" />
         </CasAppender>
         <CasAppender name="casConsole">
             <AppenderRef ref="console" />
-        </CasAppender>
-        <CasAppender name="casPerf">
-            <AppenderRef ref="perfFileAppender" />
         </CasAppender>
     </Appenders>
     <Loggers>
@@ -94,16 +70,6 @@
         <AsyncLogger name="com.hazelcast" level="warn" />
         <AsyncLogger name="org.apereo.spring" level="warn" />
         <AsyncLogger name="org.siemac.metamac" level="info" />
-
-        <!-- Log perf stats only to perfStats.log -->
-        <AsyncLogger name="perfStatsLogger" level="error" additivity="false" includeLocation="true">
-            <AppenderRef ref="casPerf"/>
-        </AsyncLogger>
-
-        <!-- Log audit to all root appenders, and also to audit log (additivity is not false) -->
-        <AsyncLogger name="org.apereo.inspektr.audit.support" level="info" includeLocation="true" >
-            <AppenderRef ref="casAudit"/>
-        </AsyncLogger>
 
         <!-- All Loggers inherit appenders specified here, unless additivity="false" on the Logger -->
         <AsyncRoot level="warn">
