@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- INFO: This log4j2.xml is based on the 5.3 one and not on the updated 7.3, but works for us well enough -->
 <!-- Specify the refresh internal in seconds. -->
 <Configuration monitorInterval="5">
     <Properties>
@@ -69,6 +70,7 @@
         <AsyncLogger name="org.ldaptive" level="warn" />
         <AsyncLogger name="com.hazelcast" level="warn" />
         <AsyncLogger name="org.apereo.spring" level="warn" />
+        <AsyncLogger name="org.apereo.inspektr" level="info" includeLocation="true" />
         <AsyncLogger name="org.siemac.metamac" level="info" />
 
         <!-- All Loggers inherit appenders specified here, unless additivity="false" on the Logger -->
