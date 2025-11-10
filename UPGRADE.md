@@ -37,6 +37,7 @@ Actualizar las propiedades de configuración acorde a los cambios de la nueva ve
  - cas.authn.samlIdp.metadata.location a cas.authn.saml-idp.metadata.file-system.location
  - cas.authn.samlIdp.entityId a cas.authn.saml-idp.core.entity-id
  - cas.authn.samlIdp.scope a cas.server.scope
+ - Las propiedades de firmado, muchas han cambiado, incluido el modo de generarlas, lo más rápido es eliminar las existentes en la configuración, arrancarla dejando que las genere, y pegarlas con los valores generado
 
 Nuevas propiedades configuradas internamente:
  - server.forward-headers-strategy: framework
