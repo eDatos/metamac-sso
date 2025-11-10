@@ -1,0 +1,23 @@
+// Este archivo queda aquí como referencia, para NO coger el id 6, que usamos para el servicio de SuperSet
+// Al contrario que otros servicios, este no lo ponemos en el SSO porque no queremos filtrar el clientSecret
+{
+    "@class" : "org.apereo.cas.support.oauth.services.OAuthRegisteredService",
+    "clientId": "superset-client",
+    "clientSecret": "FILL_ME_WITH_SUPERSET_SECRET",
+    "serviceId" : "^(http|https|imaps)://.*superset.*",
+    "bypassApprovalPrompt": true,
+    "name" : "OAuthService",
+    "id" : 6,
+    "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code"] ],
+    "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
+    "jsonFormat": true,
+    "accessStrategy" : {
+        "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+        "delegatedAuthenticationPolicy" : {
+          "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
+          "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS", "SAML2EDatosSSOClient" ] ]
+        },
+        "enabled" : true,
+        "ssoEnabled" : true
+    }
+}
