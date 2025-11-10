@@ -8,6 +8,55 @@
 
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
+## 4.11.2 a 4.11.3-SNAPSHOT
+*IMPORTANTE* Hace falta al menos un Tomcat 11 y Java 21
+
+Comprobar que las carpetas referidas en los archivos de configuración tengan los valores correctos y existan
+
+Si estamos ante el caso donde migramos de un tomcat edatos-internal a uno edatos-cas como solemos montar, habremos de hacer esto:
+
+    mkdir -p /data/edatos-cas/sso
+    # Limpiar los logs primero de /data/edatos-internal/sso/logs
+    cp -a /data/edatos-internal/sso/. /data/edatos-cas/sso  
+
+### Cambios de configuración
+Actualizar los log4j2.xml siguiendo el archivo incluido como referencia. Los cambios son:
+ - Revisar carpeta de log por si ha cambiado al haber cambiado el tomcat
+ - Eliminar packages="org.apereo.cas.logging"
+ - Eliminar los cas_audit.log y los perfStarts.log
+ - Añadidos loggers para org.apareo.inspektr y org.siemac.metamac
+
+Actualizar las propiedades de configuración acorde a los cambios de la nueva versión. Usar los archivos proveídos como referencia. Algunas de las propiedades que cambian:
+ - cas.authn.pac4j.saml[0].identity-provider-metadata-path a cas.authn.pac4j.saml[0].metadata.identity-provider-metadata-path
+ - cas.authn.pac4j.principalAttributeId a cas.authn.pac4j.core.principal-id-attribute
+ - cas.custom.properties.casAutoRedirect: false a cas.custom.properties.casAutoRedirect: NONE
+ - cas.authn.pac4j.saml[0].autoRedirect: true a cas.authn.pac4j.saml[0].autoRedirectType: SERVER
+ - cas.authn.pac4j.cas[0].autoRedirect a cas.authn.pac4j.cas[0].autoRedirectType
+ - cas.server.name pasa a ser calculada
+ - cas.authn.attributeRepository.expirationTime a cas.authn.attribute-repository.core.expiration-time
+ - cas.authn.samlIdp.metadata.location a cas.authn.saml-idp.metadata.file-system.location
+ - cas.authn.samlIdp.entityId a cas.authn.saml-idp.core.entity-id
+ - cas.authn.samlIdp.scope a cas.server.scope
+
+Nuevas propiedades configuradas internamente:
+ - server.forward-headers-strategy: framework
+ - spring.main.allow-bean-definition-overriding: true
+ - cas.person-directory.principal-transformation.case-conversion: LOWERCASE
+ - cas.locale.cookie.path: ${edatos.context}
+
+Propiedades eliminadas
+ - cas.authn.oidc.claimsMap.email, ya no damos soporte a OIDC
+ - cas.authn.oidc.jwks-file, ya no damos soporte a OIDC
+ - cas.authn.oauth.userProfileViewType: FLAT, ya no está soportada, en su lugar se configura en los servicios
+  
+Actualizados servicios, usar los contenidos de services/custom como referencia del valor correcto que han de tomar. Han cambiado:
+ - HTTPSandHTTP-1.json
+ - TableauServer-2.json
+ - openmetadata-3.json
+ - Grafana-4.json
+ - istacOrg-5.json
+ - superset-6.json
+
 ## 4.6.4 a 4.7.0
 * Se ha modificado el nombre y ruta de ciertas configuraciones a fin de presentar un aspecto más estándar y ordenado
 - Se ha de mover el contenido de file:${environment.metamac.data}/sso/saml a file:${environment.metamac.data}/sso/saml/idp
