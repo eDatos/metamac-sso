@@ -1,3 +1,7 @@
+# Documentación de la versión
+- https://github.com/apereo/cas/releases/tag/v7.3.0
+- https://apereo.github.io/cas/7.3.x/release_notes/Overview.html
+
 # Errores durante desarrollo
 Si en el log encuentra el siguiente error confirme que ha configurado Lombok en su IDE ( https://confluence.arte.dev/display/CONOCIMIENTO/Lombok ) 
 ```

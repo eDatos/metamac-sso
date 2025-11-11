@@ -45,6 +45,7 @@
                   - Véase https://github.com/apereo/cas-overlay-template/blob/5.3/pom.xml 
                   - https://jasigcas.readthedocs.io/en/latest/cas-server-documentation/installation/Configuring-Servlet-Container.html 
                   - https://apereo.github.io/cas/7.3.x/installation/Configuring-Servlet-Container-Embedded.html
+                  - https://apereo.github.io/cas/7.2.x/installation/Configuring-Servlet-Container-Embedded-Tomcat.html
                   -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
