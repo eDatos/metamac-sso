@@ -8,6 +8,16 @@
     "id" : 4,
     "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code"] ],
     "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
-    "jsonFormat": true
+    "jsonFormat": true,
+    "userProfileViewType": "FLAT",
+    "accessStrategy" : {
+        "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+        "delegatedAuthenticationPolicy" : {
+          "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
+          "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS", "SAML2EDatosSSOClient" ] ]
+        },
+        "enabled" : true,
+        "ssoEnabled" : true
+    }
   }
   

@@ -1,14 +1,5 @@
-cas:
-  serviceRegistry:
-    json:
-      location: file:/data/edatos/authentication-service/conf/services/custom
-
-  authn:
-    saml-idp:
-      metadata:
-        location: file:/data/edatos/authentication-service/saml/idp
-    oidc:
-      jwks-file: file:/data/edatos/authentication-service/conf/oidc-keystore.jwks
+cas.service-registry.json.location: file:/data/edatos/authentication-service/conf/services/custom
+cas.authn.saml-idp.metadata.file-system.location: file:/data/edatos/authentication-service/saml/idp
 
 spring:
   datasource:

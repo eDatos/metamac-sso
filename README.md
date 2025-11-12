@@ -1,3 +1,7 @@
+# Documentación de la versión
+- https://github.com/apereo/cas/releases/tag/v7.3.0
+- https://apereo.github.io/cas/7.3.x/release_notes/Overview.html
+
 # Errores durante desarrollo
 Si en el log encuentra el siguiente error confirme que ha configurado Lombok en su IDE ( https://confluence.arte.dev/display/CONOCIMIENTO/Lombok ) 
 ```
@@ -17,4 +21,11 @@ Eliminar el archivo /metamac-sso-web/src/main/resources/templates/layout.html si
 
 * Modificar directamente los archivos de services/custom/*.json, se refleja automáticamente
 * Modificar directamente los archivos de metadata/*.xml, NO se reflejan automáticamente
+
+# URLs para pruebas
+En situaciones donde tenemos configurada de manera múltiple la autenticación delegada, podemos recurrir a esta URL para activar uno u otro,
+dado que la botonera que está para estos casos nosotros no la dibujamos.
+
+    <url sso>/clientredirect?client_name=DELEGATED_CAS
+    <url sso>/clientredirect?client_name=SAML2EDatosSSOClient
 
