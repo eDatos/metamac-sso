@@ -58,6 +58,12 @@ Actualizados servicios, usar los contenidos de services/custom como referencia d
  - istacOrg-5.json
  - superset-6.json
 
+
+Es necesario ejecutar los scripts SQL contenidos en la carpeta para el borrado de propiedades deprecadas en common-metadata
+  ```shell
+  etc/changes-from-release/4.11.2
+  ```
+
 ## 4.6.4 a 4.7.0
 * Se ha modificado el nombre y ruta de ciertas configuraciones a fin de presentar un aspecto más estándar y ordenado
 - Se ha de mover el contenido de file:${environment.metamac.data}/sso/saml a file:${environment.metamac.data}/sso/saml/idp
