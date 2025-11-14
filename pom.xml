@@ -21,7 +21,6 @@
 
     <modules>
         <module>metamac-sso-parent</module>
-        <module>metamac-sso-client</module>
         <module>metamac-sso-web</module>
     </modules>
 </project>

@@ -57,6 +57,9 @@ Actualizados servicios, usar los contenidos de services/custom como referencia d
  - Grafana-4.json
  - istacOrg-5.json
  - superset-6.json
+ 
+### Migración metamac-sso-client
+A partir de esta versión, metamac-sso-client está en otro repositorio. No es breaking change. Lo único que pasa es que el versionado puede diferir a partir de ahora.
 
 ## 4.6.4 a 4.7.0
 * Se ha modificado el nombre y ruta de ciertas configuraciones a fin de presentar un aspecto más estándar y ordenado
