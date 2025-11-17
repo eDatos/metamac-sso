@@ -11,7 +11,7 @@
 
     <groupId>org.siemac.metamac.metamac-sso</groupId>
     <artifactId>metamac-sso-parent</artifactId>
-    <version>4.11.3-SNAPSHOT</version>
+    <version>5.0.0</version>
     <name>SIEMAC :: SSO :: PARENT</name>
     <packaging>pom</packaging>
 
@@ -83,4 +83,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+  <scm>
+    <tag>20251117-1310-v5.0.0</tag>
+  </scm>
 </project>
