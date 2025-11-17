@@ -20,7 +20,7 @@
 # authentication-service:<version>
 ###
 
-FROM eclipse-temurin:8-jdk
+FROM eclipse-temurin:21-jdk
 LABEL MAINTAINER=info@arte-consultores.com
 
 RUN mkdir -p /data/edatos/authentication-service/conf

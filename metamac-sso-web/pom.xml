@@ -20,7 +20,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.4.0</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <recompressZippedFiles>false</recompressZippedFiles>
@@ -30,10 +30,7 @@
                     <overlays>
                         <overlay>
                             <groupId>org.apereo.cas</groupId>
-                            <artifactId>cas-server-webapp</artifactId>                            
-                            <excludes>
-                                <exclude>WEB-INF/lib/log4j*</exclude>                                
-                            </excludes>
+                            <artifactId>cas-server-webapp</artifactId>
                         </overlay>
                     </overlays>
                 </configuration>
@@ -44,9 +41,15 @@
                 <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
             <plugin>
+                <!-- 
+                  - Véase https://github.com/apereo/cas-overlay-template/blob/5.3/pom.xml 
+                  - https://jasigcas.readthedocs.io/en/latest/cas-server-documentation/installation/Configuring-Servlet-Container.html 
+                  - https://apereo.github.io/cas/7.3.x/installation/Configuring-Servlet-Container-Embedded.html
+                  - https://apereo.github.io/cas/7.2.x/installation/Configuring-Servlet-Container-Embedded-Tomcat.html
+                  -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.7.18</version> <!-- compatible con Java 8 -->
+                <version>3.5.6</version> 
                 <executions>
                     <execution>
                         <goals>
@@ -55,9 +58,10 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <mainClass>org.apereo.cas.web.CasWebApplication</mainClass>
                     <executable>true</executable>
-                    <fork>true</fork>
-                    <!-- Enable the line below to have remote debugging of your application on port 5005 <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments> -->
+                    <!-- Enable the line below to have remote debugging of your application on port 5005 -->
+                    <!-- <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments> -->
                 </configuration>
             </plugin>
         </plugins>
@@ -69,6 +73,12 @@
             <artifactId>cas-server-webapp</artifactId>
             <type>war</type>
             <scope>runtime</scope>
+        </dependency> 
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-webapp-tomcat</artifactId>
+            <type>war</type>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Delegate authentication -->
@@ -77,6 +87,12 @@
             <artifactId>cas-server-support-pac4j-webflow</artifactId>                    
         </dependency>
 
+        <!-- CAS Delegate authentication -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-pac4j-cas</artifactId>
+        </dependency>
+        
         <!-- Service registry -->
         <dependency>
             <groupId>org.apereo.cas</groupId>
@@ -101,31 +117,33 @@
           <artifactId>cas-server-core-services-authentication</artifactId>         
         </dependency>
         
+        <!-- Attribute resolution - JDBC -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jdbc</artifactId>
+        </dependency>
+        
+        <!-- Allow groovy scripting - https://apereo.github.io/cas/7.3.x/integration/Apache-Groovy-Scripting.html -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-core-scripting</artifactId>
+        </dependency>
+
         <!-- Allow CAS to be used as SAML2 idp  https://apereo.github.io/cas/5.3.x/installation/Configuring-SAML2-Authentication.html -->
         <dependency>
           <groupId>org.apereo.cas</groupId>
           <artifactId>cas-server-support-saml-idp</artifactId>
         </dependency>
-
-        <!-- OIDC War Overloays -->
+        
+        <!-- Allow CAS to be used with a SAML2 delegated authentication https://apereo.github.io/cas/7.2.x/integration/Delegate-Authentication-SAML2.html -->
         <dependency>
             <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-oidc</artifactId>
+            <artifactId>cas-server-support-pac4j-saml</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-oidc-core</artifactId>
-        </dependency>
-
 
      <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-oauth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-oauth-core</artifactId>
         </dependency>
 
         <dependency>
@@ -160,43 +178,6 @@
             <artifactId>pac4j-core</artifactId>
         </dependency>
 
-
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <!-- log4j dependency override -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-        </dependency>
-          <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-jcl</artifactId>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-          </dependency>
-          <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-web</artifactId>
-          </dependency>
-        
         <!-- Common Metadata configuration properties -->
         <dependency>
             <groupId>org.siemac.metamac</groupId>
@@ -235,9 +216,14 @@
         </dependency>
 
         <dependency>
+          <groupId>org.jboss.logging</groupId>
+          <artifactId>jboss-logging</artifactId>
+          <version>${jboss-logging.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,15 +1,24 @@
-# https://apereo.github.io/cas/5.3.x/installation/Configuration-Server-Management.html#standalone
-
-cas.server.name: metamac-sso-web
+# https://apereo.github.io/cas/7.2.x/configuration/Configuration-Management.html
+# In other CAS we could see cas.server.prefix: ${cas.server.name}${edatos.context} instead, but
+# because here we have that property in common-metadata to use in other places, we use it and build the other two from it
 cas.server.prefix: ${metamac.security.cas_server_url_prefix}
+# This properties will be generated on org.siemac.metamac.cas.config.CommonMetadataPropertySourceBootstrapConfiguration
+# And derived from cas.server.prefix
+edatos.context: ${generated.edatos.context}
+cas.server.name: ${generated.cas.server.name}
+
+# Para poder trabajar como HTTP tras un proxy https
+server.forward-headers-strategy: framework
 
 # Redirigimos contra el logout del CAS delegado para finalizar el logout
 cas.logout.redirectUrl: ${metamac.security.delegated.logout_url}
 
+# Allow configuration classes to override bean definitions from Spring Boot
+spring.main.allow-bean-definition-overriding: true
 
 # Registro de servicios
-# https://apereo.github.io/cas/5.3.x/installation/AutoInitialization-Service-Management.html#service-registry-initialization
-cas.serviceRegistry.json.location: classpath:/services/custom
+# https://apereo.github.io/cas/7.3.x/services/JSON-Service-Management.html
+cas.service-registry.json.location: classpath:/services/custom
 
 # Resolucion de atributos
 # https://apereo.github.io/cas/5.3.x/integration/Attribute-Resolution.html#multi-row
@@ -30,12 +39,13 @@ cas.authn.attributeRepository.jdbc[0].url: ${metamac.security.datasource.url}
 # Tiempo de expiración de la cache de atributos
 # Estableciendo el valor a 0 no se cachean los atributos y evitamos problemas a la hora de refrescar posibles actualizaciones de roles
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#authentication-attributes
-cas.authn.attributeRepository.expirationTime: 0
+cas.authn.attribute-repository.core.expiration-time: 0
 
-# Autenticacion delegada
-# https://apereo.github.io/cas/5.3.x/integration/Delegate-Authentication.html
+# Delegate Authentication
+# https://apereo.github.io/cas/7.3.x/integration/Delegate-Authentication-CAS.html
+# https://github.com/apereo/cas/blob/v7.3.1/api/cas-server-core-api-configuration-model/src/main/java/org/apereo/cas/configuration/model/support/delegation/DelegationAutoRedirectTypes.java
 cas.authn.pac4j.cas[0].loginUrl: ${metamac.security.delegated.login_url}
-cas.authn.pac4j.cas[0].autoRedirect: ${cas.custom.properties.casAutoRedirect:true}
+cas.authn.pac4j.cas[0].autoRedirectType: ${cas.custom.properties.casAutoRedirect:SERVER}
 cas.authn.pac4j.cas[0].clientName: DELEGATED_CAS
 
 # Control de cabeceras
@@ -47,13 +57,8 @@ cas.httpWebRequest.header.hsts: false
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#accept-users-authentication
 cas.authn.accept.users: 
 
-#cas.authn.oidc.scopes: openid,profile,email,address,phone,offline_access,testScope
-#cas.authn.oidc.user-defined-scopes.myownscope: email,given_name,preferred_username
-
-# https://apereo.github.io/cas/6.6.x/authentication/OIDC-Authentication-Claims.html
-# https://groups.google.com/a/apereo.org/g/cas-user/c/T9EeA_JXhqw/m/cXo3EzfOCQAJ
-cas.authn.oidc.claimsMap.email: mail
-cas.authn.oidc.jwks-file: file:${environment.metamac.data}/sso/config/oidc-keystore.jwks 
+# https://apereo.github.io/cas/7.3.x/installation/Configuring-Principal-Resolution.html#caspersondirectoryprincipaltransformationcaseconversionPropertyConfig
+cas.person-directory.principal-transformation.case-conversion: LOWERCASE
 
 # Debug SQL
 #cas.jdbc.showSql: true
@@ -65,12 +70,14 @@ cas.ticket.st.timeToKillInSeconds: 600
 cas.ticket.tst.timeToKillInSeconds: 900
 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#saml-idp
-cas.authn.samlIdp.metadata.location: file:${environment.metamac.data}/sso/saml/idp
-cas.authn.samlIdp.entityId: ${metamac.security.cas_server_url_prefix}/idp
+cas.authn.saml-idp.metadata.file-system.location: file:${environment.metamac.data}/sso/saml/idp
+cas.authn.saml-idp.core.entity-id: ${metamac.security.cas_server_url_prefix}/idp
 # Este valor en realidad no parece usarse hasta que pasemos a usar atributos scoped
 # https://apereo.github.io/cas/6.5.x/integration/Attribute-Definitions.html#attribute-definitions
 # Hasta entonces, puede tener un valor no significativo
-cas.authn.samlIdp.scope: edatos.io
+cas.server.scope: edatos.io
 
-# Forma de visualización del userprofile
-cas.authn.oauth.userProfileViewType: FLAT
+# CAS Locale
+# https://apereo.github.io/cas/development/ux/User-Interface-Customization-Localization.html
+cas.locale.cookie.path: ${edatos.context}
+

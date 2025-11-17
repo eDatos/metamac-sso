@@ -1,0 +1,35 @@
+// Este archivo queda aquí como referencia, para NO coger el id 5, que usamos para el servicio de OpenCMS
+// Al contrario que otros servicios, este no lo ponemos en el SSO porque da problemas para detectarlo si el serviceID no es concretamente el específico
+{
+  "@class" : "org.apereo.cas.support.saml.services.SamlRegisteredService",
+  "serviceId" : "^https://www-pre.istac.org.*",
+  "name" : "edatos-opencms",
+  "id" : 5,
+  "evaluationOrder" : 9,
+  "metadataLocation" : "classpath:/metadata/sp-istac-org-metadata.xml",
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
+     "authorizedToReleaseCredentialPassword" : false,
+    "authorizedToReleaseProxyGrantingTicket" : false,
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "login" : "groovy { return attributes['username'].get(0) }"
+    }
+  },
+  "accessStrategy" : {
+    "@class" : "org.jasig.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "delegatedAuthenticationPolicy" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
+      "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS" ] ]
+    },
+    "enabled" : true,
+    "ssoEnabled" : true
+  },
+  "properties" : {
+    "@class" : "java.util.HashMap",
+    "httpHeaderEnableStrictTransportSecurity" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+      "values" : [ "java.util.HashSet", [ "false" ] ]
+    }
+  }
+}
