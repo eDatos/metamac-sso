@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.siemac.metamac</groupId>
         <artifactId>metamac-parent</artifactId>
-        <version>5.1.3-SNAPSHOT</version>
+        <version>5.1.3</version>
         <relativePath>../metamac-parent/pom.xml</relativePath>
     </parent>
 
     <groupId>org.siemac.metamac.metamac-sso</groupId>
     <artifactId>metamac-sso-parent</artifactId>
-    <version>4.11.3-SNAPSHOT</version>
+    <version>5.0.1-SNAPSHOT</version>
     <name>SIEMAC :: SSO :: PARENT</name>
     <packaging>pom</packaging>
 
