@@ -8,7 +8,7 @@
 
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
-## 5.0.0 a 5.0.1-SNAPSHOT
+## 5.0.0 a 5.0.1
 
 Es necesario ejecutar los scripts SQL contenidos en la **carpeta para el borrado de propiedades deprecadas en common-metadata**
   ```shell
