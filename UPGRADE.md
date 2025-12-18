@@ -8,7 +8,15 @@
 
 *Se deberá realizar primero la actualización de la versión 1.0.0 a la 2.0.0 y luego desde la 2.0.0 a la 3.0.0*
 
-## 4.11.2 a 4.11.3-SNAPSHOT
+## 5.0.0 a 5.0.1-SNAPSHOT
+
+Es necesario ejecutar los scripts SQL contenidos en la **carpeta para el borrado de propiedades deprecadas en common-metadata**
+  ```shell
+  etc/changes-from-release/5.0.0
+  ```
+
+
+## 4.11.2 a 5.0.0
 *IMPORTANTE* Hace falta al menos un Tomcat 11 y Java 21
 
 Comprobar que las carpetas referidas en los archivos de configuración tengan los valores correctos y existan
@@ -17,7 +25,8 @@ Si estamos ante el caso donde migramos de un tomcat edatos-internal a uno edatos
 
     mkdir -p /data/edatos-cas/sso
     # Limpiar los logs primero de /data/edatos-internal/sso/logs
-    cp -a /data/edatos-internal/sso/. /data/edatos-cas/sso  
+    cp -a /data/edatos-internal/sso/. /data/edatos-cas/sso
+    chown -R edatos-cas:edatos-cas /data/edatos-cas/sso  
 
 ### Cambios de configuración
 Actualizar los log4j2.xml siguiendo el archivo incluido como referencia. Los cambios son:
@@ -60,6 +69,7 @@ Actualizados servicios, usar los contenidos de services/custom como referencia d
  
 ### Migración metamac-sso-client
 A partir de esta versión, metamac-sso-client está en otro repositorio. No es breaking change. Lo único que pasa es que el versionado puede diferir a partir de ahora.
+
 
 ## 4.6.4 a 4.7.0
 * Se ha modificado el nombre y ruta de ciertas configuraciones a fin de presentar un aspecto más estándar y ordenado
