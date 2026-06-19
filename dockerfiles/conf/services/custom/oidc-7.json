@@ -21,7 +21,7 @@
       "ssoEnabled" : true,
       "delegatedAuthenticationPolicy" : {
         "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
-        "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS", "SAML2EDatosSSOClient" ] ]
+        "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS", "SAML2EDatosSSOClient", "OIDCEdatosSSOClient" ] ]
       }
     },
     "attributeReleasePolicy": {
