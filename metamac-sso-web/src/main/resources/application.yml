@@ -70,7 +70,7 @@ cas.ticket.st.timeToKillInSeconds: 600
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#transient-session-tickets-behavior
 cas.ticket.tst.timeToKillInSeconds: 900
 
-# Necesario para que los endpoints OIDC de CAS sean compatibles con Spring Boot 3.x
+# Needed so OIDC CAS endpoints are compatible with Spring Boot 3.x
 spring.mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
 
 # OIDC Provider
