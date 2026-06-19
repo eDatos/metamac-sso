@@ -7,7 +7,7 @@
     "id" : 7,
     "description": "Servicio OIDC para acceso de aplicaciones",
 
-    "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email", "metamac" ] ],
+    "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email" ] ],
     "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code", "refresh_token" ] ],
     "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
 
@@ -32,11 +32,6 @@
         },
         {
           "@class": "org.apereo.cas.oidc.claims.OidcEmailScopeAttributeReleasePolicy"
-        },
-        {
-          "@class": "org.apereo.cas.oidc.claims.OidcCustomScopeAttributeReleasePolicy",
-          "scopeName": "metamac",
-          "allowedAttributes": [ "java.util.ArrayList", [ "acl" ] ]
         }
       ]]
     }
