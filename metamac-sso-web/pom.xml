@@ -147,23 +147,15 @@
             <artifactId>cas-server-support-pac4j-saml</artifactId>
         </dependency>
 
-     <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-oauth</artifactId>
-        </dependency>
-
+        <!-- OIDC provider support (includes OAuth2 transitively) -->
         <dependency>
             <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-oauth-api</artifactId>
+            <artifactId>cas-server-support-oidc</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-core-services-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-oauth-services</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apereo.cas</groupId>

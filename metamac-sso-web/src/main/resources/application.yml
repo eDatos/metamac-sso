@@ -41,12 +41,13 @@ cas.authn.attributeRepository.jdbc[0].url: ${metamac.security.datasource.url}
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#authentication-attributes
 cas.authn.attribute-repository.core.expiration-time: 0
 
-# Delegate Authentication
+# Delegate Authentication via CAS Delegado
 # https://apereo.github.io/cas/7.3.x/integration/Delegate-Authentication-CAS.html
 # https://github.com/apereo/cas/blob/v7.3.1/api/cas-server-core-api-configuration-model/src/main/java/org/apereo/cas/configuration/model/support/delegation/DelegationAutoRedirectTypes.java
 cas.authn.pac4j.cas[0].loginUrl: ${metamac.security.delegated.login_url}
 cas.authn.pac4j.cas[0].autoRedirectType: ${cas.custom.properties.casAutoRedirect:SERVER}
 cas.authn.pac4j.cas[0].clientName: DELEGATED_CAS
+
 
 # Control de cabeceras
 # https://apereo.github.io/cas/5.3.x/planning/Security-Guide.html#security-response-headers
@@ -68,6 +69,14 @@ cas.person-directory.principal-transformation.case-conversion: LOWERCASE
 cas.ticket.st.timeToKillInSeconds: 600 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#transient-session-tickets-behavior
 cas.ticket.tst.timeToKillInSeconds: 900
+
+# OIDC Provider
+# https://apereo.github.io/cas/7.3.x/authentication/OIDC-Authentication.html
+cas.authn.oidc.core.issuer: ${cas.server.prefix}/oidc
+cas.authn.oidc.core.claims-map.email: mail
+cas.authn.oidc.core.claims-map.preferred_username: username
+cas.authn.oidc.core.user-defined-scopes.metamac: acl
+cas.authn.oidc.jwks.file-system.jwks-file: file:${environment.metamac.data}/authentication-service/conf/oidc-keystore.jwks
 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#saml-idp
 cas.authn.saml-idp.metadata.file-system.location: file:${environment.metamac.data}/sso/saml/idp
