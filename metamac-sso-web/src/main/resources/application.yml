@@ -78,7 +78,7 @@ cas.authn.oidc.core.issuer: ${cas.server.prefix}/oidc
 cas.authn.oidc.core.claims-map.email: mail
 cas.authn.oidc.core.claims-map.preferred_username: username
 cas.authn.oidc.core.user-defined-scopes.metamac: acl
-cas.authn.oidc.jwks.file-system.jwks-file: file:${environment.metamac.data}/authentication-service/conf/oidc-keystore.jwks
+cas.authn.oidc.jwks.file-system.jwks-file: file:${environment.metamac.data}/authentication-service/conf/oidc/oidc-keystore.jwks
 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#saml-idp
 cas.authn.saml-idp.metadata.file-system.location: file:${environment.metamac.data}/authentication-service/saml/idp
