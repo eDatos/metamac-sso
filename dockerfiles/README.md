@@ -10,22 +10,17 @@ dockerfiles/
 └── conf/                              # Copiado íntegramente a /data/edatos/authentication-service/conf/
     ├── environment.xml                # Conexión a la BD de Common Metadata (rellenar antes del despliegue)
     ├── application-env.yml            # Overrides de Spring Boot activos con el perfil "env" (Docker)
-    ├── metadata/                      # Metadatos SAML de los SPs registrados (sin hot-reload: requiere reinicio)
-    │   ├── sp-openmetadata-metadata.xml
-    │   └── sp-tableau-server-metadata.xml
-    └── services/
-        └── custom/                    # Servicios CAS por defecto incluidos en la imagen (con hot-reload)
-            └── oidc-7.json
+    └── metadata/                      # Metadatos SAML de los SPs registrados (sin hot-reload: requiere reinicio)
+        ├── sp-openmetadata-metadata.xml
+        └── sp-tableau-server-metadata.xml
 ```
 
-### Nota sobre `services/custom/`
-
-Los ficheros JSON de `conf/services/custom/` son los **servicios CAS que se incluyen por defecto en la imagen**.
-Son el espejo de `metamac-sso-web/src/main/resources/services/custom/`: cualquier servicio nuevo que deba
-estar disponible en el despliegue Docker debe añadirse también aquí.
+Los servicios CAS (`services/custom/`) se copian directamente desde
+`metamac-sso-web/src/main/resources/services/custom/`, que es la fuente única de verdad.
+Cualquier servicio nuevo añadido ahí quedará incluido automáticamente en la imagen.
 
 Si en producción el directorio `services/custom` se monta como volumen externo, los ficheros cargados
-en la imagen quedan tapados por el montaje y hay que asegurarse de incluirlos en dicho volumen. 
+en la imagen quedan tapados por el montaje y hay que asegurarse de incluirlos en dicho volumen.
 
 ## Generar la imagen para despliegue local
 
