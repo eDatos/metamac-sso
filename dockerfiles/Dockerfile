@@ -23,7 +23,7 @@
 FROM eclipse-temurin:21-jdk
 LABEL MAINTAINER=info@arte-consultores.com
 
-RUN mkdir -p /data/edatos/authentication-service/conf
+RUN mkdir -p /data/edatos/authentication-service/conf/oidc
 RUN mkdir -p /data/edatos/authentication-service/logs
 RUN mkdir -p /data/edatos/authentication-service/saml/idp
 
