@@ -6,15 +6,15 @@
     "name" : "OIDC Service",
     "id" : 7,
     "description": "Servicio OIDC para acceso de aplicaciones",
-  
-    "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email" ] ],
+
+    "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email", "groups" ] ],
     "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code", "refresh_token" ] ],
     "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
-  
+
     "signIdToken": true,
     "jsonFormat": true,
     "bypassApprovalPrompt": true,
-  
+
     "accessStrategy" : {
       "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
       "enabled" : true,
@@ -25,17 +25,32 @@
       }
     },
     "attributeReleasePolicy": {
-      "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
-      "principalAttributesRepository": {
-        "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
-      },
-      "claimMappings": {
-        "@class": "java.util.TreeMap",
-        "name": "name",
-        "email": "mail",
-        "preferred_username": "username",
-        "groups": "groovy { return attributes['ACL'] }",
-        "profile" : "groovy { return attributes['ACL'] }"
-      }
+      "@class": "org.apereo.cas.services.ChainingAttributeReleasePolicy",
+      "policies": [ "java.util.ArrayList", [
+        {
+          "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
+          "principalAttributesRepository": {
+            "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
+          },
+          "claimMappings": {
+            "@class": "java.util.TreeMap",
+            "name": "name",
+            "email": "mail",
+            "preferred_username": "username",
+            "profile": "ACL"
+          }
+        },
+        {
+          "@class": "org.apereo.cas.oidc.claims.OidcCustomScopeAttributeReleasePolicy",
+          "scopeName": "groups",
+          "principalAttributesRepository": {
+            "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
+          },
+          "claimMappings": {
+            "@class": "java.util.TreeMap",
+            "acl": "ACL"
+          }
+        }
+      ]]
     }
   }

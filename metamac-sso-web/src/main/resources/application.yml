@@ -75,7 +75,8 @@ spring.mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
 # OIDC Provider
 # https://apereo.github.io/cas/7.3.x/authentication/OIDC-Authentication.html
 cas.authn.oidc.core.issuer: ${cas.server.prefix}/oidc
-cas.authn.oidc.discovery.claims: sub,acr,name,preferred_username,family_name,given_name,middle_name,profile,picture,nickname,website,zoneinfo,locale,updated_at,birthdate,email,email_verified,phone_number,phone_number_verified,address,gender,groups
+cas.authn.oidc.discovery.claims: sub,acr,name,preferred_username,family_name,given_name,middle_name,profile,picture,nickname,website,zoneinfo,locale,updated_at,birthdate,email,email_verified,phone_number,phone_number_verified,address,gender,acl
+cas.authn.oidc.core.user-defined-scopes.groups: ACL
 cas.authn.oidc.jwks.file-system.jwks-file: file:${environment.metamac.data}/authentication-service/conf/oidc/oidc-keystore.jwks
 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#saml-idp
