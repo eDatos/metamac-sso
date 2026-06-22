@@ -41,15 +41,13 @@
           }
         },
         {
-          "@class": "org.apereo.cas.oidc.claims.OidcCustomScopeAttributeReleasePolicy",
-          "scopeName": "groups",
-          "allowedAttributes": [ "java.util.ArrayList", [ "ACL" ] ],
+          "@class": "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
           "principalAttributesRepository": {
             "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
           },
-          "claimMappings": {
+          "allowedAttributes": {
             "@class": "java.util.TreeMap",
-            "acl": "ACL"
+            "acl": "groovy { return attributes['ACL'] }"
           }
         }
       ]]
