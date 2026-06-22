@@ -26,6 +26,9 @@
     },
     "attributeReleasePolicy": {
       "@class": "org.apereo.cas.services.ChainingAttributeReleasePolicy",
+      "principalAttributesRepository": {
+        "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
+      },
       "policies": [ "java.util.ArrayList", [
         {
           "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
