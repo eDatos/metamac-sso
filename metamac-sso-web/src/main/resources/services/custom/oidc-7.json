@@ -7,7 +7,7 @@
     "id" : 7,
     "description": "Servicio OIDC para acceso de aplicaciones",
   
-    "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email", "acl" ] ],
+    "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email" ] ],
     "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code", "refresh_token" ] ],
     "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
   
@@ -28,15 +28,14 @@
       "@class": "org.apereo.cas.services.ChainingAttributeReleasePolicy",
       "policies": [ "java.util.ArrayList", [
         {
-          "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy"
+          "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
+          "claimMappings": {
+            "@class": "java.util.TreeMap",
+            "groups": "groovy { return attributes['acl'] }"
+          }
         },
         {
           "@class": "org.apereo.cas.oidc.claims.OidcEmailScopeAttributeReleasePolicy"
-        },
-        {
-          "@class": "org.apereo.cas.oidc.claims.OidcCustomScopeAttributeReleasePolicy",
-          "scopeName": "acl",
-          "allowedAttributes": [ "java.util.ArrayList", [ "acl" ] ]
         }
       ]]
     }
