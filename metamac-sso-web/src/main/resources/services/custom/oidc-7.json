@@ -34,7 +34,8 @@
         "name": "name",
         "email": "mail",
         "preferred_username": "username",
-        "groups": "ACL"
+        "groups": "acl",
+        "profile" : "groovy { return attributes['ACL'] }"
       }
     }
   }
