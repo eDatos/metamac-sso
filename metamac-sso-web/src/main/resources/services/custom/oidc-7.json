@@ -25,21 +25,16 @@
       }
     },
     "attributeReleasePolicy": {
-      "@class": "org.apereo.cas.services.ChainingAttributeReleasePolicy",
+      "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
       "principalAttributesRepository": {
         "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
       },
-      "policies": [ "java.util.ArrayList", [
-        {
-          "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
-          "claimMappings": {
-            "@class": "java.util.TreeMap",
-            "groups": "groovy { return attributes['ACL'] }"
-          }
-        },
-        {
-          "@class": "org.apereo.cas.oidc.claims.OidcEmailScopeAttributeReleasePolicy"
-        }
-      ]]
+      "claimMappings": {
+        "@class": "java.util.TreeMap",
+        "name": "name",
+        "email": "mail",
+        "preferred_username": "username",
+        "groups": "ACL"
+      }
     }
   }
