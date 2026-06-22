@@ -34,7 +34,7 @@
           "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
           "claimMappings": {
             "@class": "java.util.TreeMap",
-            "groups": "groovy { return attributes['acl'] }"
+            "groups": "groovy { return attributes['ACL'] }"
           }
         },
         {
