@@ -43,6 +43,7 @@
         {
           "@class": "org.apereo.cas.oidc.claims.OidcCustomScopeAttributeReleasePolicy",
           "scopeName": "groups",
+          "allowedAttributes": [ "java.util.ArrayList", [ "ACL" ] ],
           "principalAttributesRepository": {
             "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
           },
