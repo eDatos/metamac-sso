@@ -36,8 +36,7 @@
             "@class": "java.util.TreeMap",
             "name": "name",
             "email": "mail",
-            "preferred_username": "username",
-            "profile": "ACL"
+            "preferred_username": "username"
           }
         },
         {
