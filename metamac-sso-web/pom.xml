@@ -92,6 +92,12 @@
             <groupId>org.apereo.cas</groupId>
             <artifactId>cas-server-support-pac4j-cas</artifactId>
         </dependency>
+
+        <!-- CAS Delegate authentication via OIDC -->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-pac4j-oidc</artifactId>
+        </dependency>
         
         <!-- Service registry -->
         <dependency>
