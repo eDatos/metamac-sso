@@ -23,11 +23,12 @@
 FROM eclipse-temurin:21-jdk
 LABEL MAINTAINER=info@arte-consultores.com
 
-RUN mkdir -p /data/edatos/authentication-service/conf
+RUN mkdir -p /data/edatos/authentication-service/conf/oidc
 RUN mkdir -p /data/edatos/authentication-service/logs
 RUN mkdir -p /data/edatos/authentication-service/saml/idp
 
 COPY dockerfiles/conf /data/edatos/authentication-service/conf
+COPY metamac-sso-web/src/main/resources/services/custom /data/edatos/authentication-service/conf/services/custom
 COPY metamac-sso-web/target/*.war /data/edatos/authentication-service/authentication-service-internal.war
 
 # Definir variables de entorno con ubicaciones externas de configuración
