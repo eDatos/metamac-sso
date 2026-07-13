@@ -1,0 +1,53 @@
+{
+    "@class" : "org.apereo.cas.services.OidcRegisteredService",
+    "clientId": "oidc_client",
+    "clientSecret": "oidc_client_secret",
+    "serviceId" : "^(http|https|imaps)://.*",
+    "name" : "OIDC Service",
+    "id" : 7,
+    "description": "Servicio OIDC para acceso de aplicaciones",
+
+    "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email", "groups" ] ],
+    "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code", "refresh_token" ] ],
+    "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ],
+
+    "signIdToken": true,
+    "jsonFormat": true,
+    "bypassApprovalPrompt": true,
+
+    "accessStrategy" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+      "enabled" : true,
+      "ssoEnabled" : true,
+      "delegatedAuthenticationPolicy" : {
+        "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
+        "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS", "SAML2EDatosSSOClient" ] ]
+      }
+    },
+    "attributeReleasePolicy": {
+      "@class": "org.apereo.cas.services.ChainingAttributeReleasePolicy",
+      "policies": [ "java.util.ArrayList", [
+        {
+          "@class": "org.apereo.cas.oidc.claims.OidcProfileScopeAttributeReleasePolicy",
+          "principalAttributesRepository": {
+            "@class": "org.apereo.cas.authentication.principal.DefaultPrincipalAttributesRepository"
+          },
+          "claimMappings": {
+            "@class": "java.util.TreeMap",
+            "name": "name",
+            "email": "mail",
+            "preferred_username": "username"
+          }
+        },
+        {
+          "@class": "org.apereo.cas.oidc.claims.OidcCustomScopeAttributeReleasePolicy",
+          "scopeName": "groups",
+          "allowedAttributes": [ "java.util.ArrayList", [ "ACL" ] ],
+          "claimMappings": {
+            "@class": "java.util.TreeMap",
+            "acl": "ACL"
+          }
+        }        
+      ]]
+    }
+  }
