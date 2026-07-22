@@ -4,7 +4,7 @@
     <comment>Metamac environment definition</comment>
 
 	<!-- Configuration properties in files -->
-	<entry key="environment.metamac.data">/data/edatos/sso</entry>
+	<entry key="environment.metamac.data">/data/edatos</entry>
 
 	<!-- Configuration properties in database (postgresql) -->
     <entry key="environment.metamac.configuration.db.username">FILL_ME_WITH_DB_USER</entry>
