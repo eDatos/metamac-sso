@@ -7,7 +7,7 @@ Contiene el `Dockerfile` y los ficheros de configuración que se hornean en la i
 ```
 dockerfiles/
 ├── Dockerfile
-└── conf/                              # Copiado íntegramente a /data/edatos/authentication-service/conf/
+└── conf/                              # Copiado íntegramente a /data/edatos/sso/conf/
     ├── environment.xml                # Conexión a la BD de Common Metadata (rellenar antes del despliegue)
     ├── application-env.yml            # Overrides de Spring Boot activos con el perfil "env" (Docker)
     └── metadata/                      # Metadatos SAML de los SPs registrados (sin hot-reload: requiere reinicio)
@@ -44,7 +44,7 @@ Sustituye `<version>` por la versión deseada, por ejemplo `5.1.1-SNAPSHOT`.
 
 Antes de ejecutar el contenedor, edita `dockerfiles/conf/environment.xml` con los datos de conexión
 a la BD de Common Metadata de tu entorno local. Este fichero se monta en
-`/data/edatos/authentication-service/conf/environment.xml` dentro del contenedor.
+`/data/edatos/sso/conf/environment.xml` dentro del contenedor.
 
 ### 4. Ejecutar el contenedor
 

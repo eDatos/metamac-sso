@@ -1,5 +1,5 @@
-cas.service-registry.json.location: file:/data/edatos/authentication-service/conf/services/custom
-cas.authn.saml-idp.metadata.file-system.location: file:/data/edatos/authentication-service/saml/idp
+cas.service-registry.json.location: file:/data/edatos/sso/conf/services/custom
+cas.authn.saml-idp.metadata.file-system.location: file:/data/edatos/sso/saml/idp
 
 spring:
   datasource:
