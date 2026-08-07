@@ -80,10 +80,11 @@ cas.authn.oidc.core.issuer: ${cas.server.prefix}/oidc
 cas.authn.oidc.core.user-defined-scopes.groups: acl
 cas.authn.oidc.discovery.scopes: openid,profile,email,address,phone,groups
 cas.authn.oidc.discovery.claims: sub,acr,name,preferred_username,family_name,given_name,middle_name,profile,picture,nickname,website,zoneinfo,locale,updated_at,birthdate,email,email_verified,phone_number,phone_number_verified,address,gender,acl
-cas.authn.oidc.jwks.file-system.jwks-file: file:${environment.metamac.data}/authentication-service/conf/oidc/oidc-keystore.jwks
+cas.authn.oidc.jwks.file-system.jwks-file: file:${environment.metamac.data}/sso/conf/oidc/oidc-keystore.jwks
 
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#saml-idp
-cas.authn.saml-idp.metadata.file-system.location: file:${environment.metamac.data}/authentication-service/saml/idp
+# No lo incluímos en en conf porque son ficheros que se generan en runtime
+cas.authn.saml-idp.metadata.file-system.location: file:${environment.metamac.data}/sso/saml/idp
 cas.authn.saml-idp.core.entity-id: ${metamac.security.cas_server_url_prefix}/idp
 # Este valor en realidad no parece usarse hasta que pasemos a usar atributos scoped
 # https://apereo.github.io/cas/6.5.x/integration/Attribute-Definitions.html#attribute-definitions
