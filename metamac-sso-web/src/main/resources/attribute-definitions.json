@@ -1,0 +1,9 @@
+{
+  "@class" : "java.util.TreeMap",
+  "acl" : {
+    "@class" : "org.apereo.cas.oidc.claims.OidcAttributeDefinition",
+    "key" : "acl",
+    "name" : "acl",
+    "singleValue" : false
+  }
+}
