@@ -4,7 +4,7 @@
     "clientSecret": "oidc_client_secret",
     "serviceId" : "^(http|https|imaps)://.*",
     "name" : "OIDC Service",
-    "id" : 7,
+    "id" : 8,
     "description": "Servicio OIDC para acceso de aplicaciones",
 
     "scopes" : [ "java.util.HashSet", [ "openid", "profile", "email", "groups" ] ],

@@ -1,0 +1,38 @@
+// Este archivo queda aquí como referencia, para NO coger el id 7, que usamos para el servicio de KuFlow
+// Al contrario que otros servicios, este no lo ponemos en el SSO porque solo se despliega en el entorno de producción (ver repositorio de sistemas)
+{
+  "@class" : "org.apereo.cas.support.saml.services.SamlRegisteredService",
+  "serviceId" : "https://auth.kuflow.com/realms/KuFlow",
+  "name" : "AuthKuflowKeycloak",
+  "id" : 7,
+  "evaluationOrder" : 10,
+  "metadataLocation" : "classpath:/metadata/sp-auth-kuflow-keycloak-metadata.xml",
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnMappedAttributeReleasePolicy",
+     "authorizedToReleaseCredentialPassword" : false,
+    "authorizedToReleaseProxyGrantingTicket" : false,
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "username" : "groovy { return attributes['username'].get(0) }",
+      "name" : "groovy { return attributes['name']?.get(0) }",
+      "surname" : "groovy { return attributes['surname']?.get(0) }",
+      "email" : "groovy { return attributes['mail']?.get(0) }"
+    }
+  },
+  "accessStrategy" : {
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "delegatedAuthenticationPolicy" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceDelegatedAuthenticationPolicy",
+      "allowedProviders" : [ "java.util.ArrayList", [ "DELEGATED_CAS", "SAML2EDatosSSOClient" ] ]
+    },
+    "enabled" : true,
+    "ssoEnabled" : true
+  },
+  "properties" : {
+    "@class" : "java.util.HashMap",
+    "httpHeaderEnableStrictTransportSecurity" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+      "values" : [ "java.util.HashSet", [ "false" ] ]
+    }
+  }
+}
