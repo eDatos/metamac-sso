@@ -41,6 +41,9 @@ cas.authn.attributeRepository.jdbc[0].url: ${metamac.security.datasource.url}
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#authentication-attributes
 cas.authn.attribute-repository.core.expiration-time: 0
 
+# https://apereo.github.io/cas/7.3.x/integration/Attribute-Definitions.html
+cas.authn.attribute-repository.attribute-definition-store.json.location: classpath:/attribute-definitions.json
+
 # Delegate Authentication via CAS
 # https://apereo.github.io/cas/7.3.x/integration/Delegate-Authentication-CAS.html
 # https://github.com/apereo/cas/blob/v7.3.1/api/cas-server-core-api-configuration-model/src/main/java/org/apereo/cas/configuration/model/support/delegation/DelegationAutoRedirectTypes.java
