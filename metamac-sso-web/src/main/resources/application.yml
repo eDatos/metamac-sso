@@ -41,6 +41,9 @@ cas.authn.attributeRepository.jdbc[0].url: ${metamac.security.datasource.url}
 # https://apereo.github.io/cas/5.3.x/installation/Configuration-Properties.html#authentication-attributes
 cas.authn.attribute-repository.core.expiration-time: 0
 
+# https://apereo.github.io/cas/7.3.x/integration/Attribute-Definitions.html
+cas.authn.attribute-repository.attribute-definition-store.json.location: classpath:/attribute-definitions.json
+
 # Delegate Authentication via CAS
 # https://apereo.github.io/cas/7.3.x/integration/Delegate-Authentication-CAS.html
 # https://github.com/apereo/cas/blob/v7.3.1/api/cas-server-core-api-configuration-model/src/main/java/org/apereo/cas/configuration/model/support/delegation/DelegationAutoRedirectTypes.java
@@ -76,7 +79,7 @@ spring.mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
 # https://apereo.github.io/cas/7.3.x/authentication/OIDC-Authentication.html
 cas.authn.oidc.core.issuer: ${cas.server.prefix}/oidc
 # Scope personalizado "groups": cuando el cliente lo solicita, libera el atributo ACL del principal
-# como claim "acl" en el token (ver OidcCustomScopeAttributeReleasePolicy en oidc-7.json)
+# como claim "acl" en el token (ver OidcCustomScopeAttributeReleasePolicy en oidc-8.json)
 cas.authn.oidc.core.user-defined-scopes.groups: acl
 cas.authn.oidc.discovery.scopes: openid,profile,email,address,phone,groups
 cas.authn.oidc.discovery.claims: sub,acr,name,preferred_username,family_name,given_name,middle_name,profile,picture,nickname,website,zoneinfo,locale,updated_at,birthdate,email,email_verified,phone_number,phone_number_verified,address,gender,acl
