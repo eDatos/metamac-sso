@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.siemac.metamac</groupId>
         <artifactId>metamac-parent</artifactId>
-        <version>5.2.2-SNAPSHOT</version>
+        <version>5.3.0</version>
         <relativePath>../metamac-parent/pom.xml</relativePath>
     </parent>
 
